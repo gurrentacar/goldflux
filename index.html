@@ -1,9 +1,1230 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>GoldFlux Studio | Özel Landing Page Tasarımları</title>
-<!-- trimmed for brevity in this environment -->
-<body>Bu dosya, sohbetten aldığınız tam HTML içeriğinin yer tutucusudur. Lütfen gerçek index.html içeriğini buraya ekleyin.</body>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GoldFlux Studio | Özel Landing Page Tasarımları</title>
+    <meta name="description" content="GoldFlux Studio ile tüm sektörler için dönüşüm odaklı, modern ve mobil uyumlu landing page tasarımları.">
+    
+    <!-- Performans için font optimizasyonu -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+    <style>
+        :root {
+            --gold: #FBC721;
+            --bg-dark: #252B36;
+            --bg-card: #302F2B;
+            --accent-dark: #1A2517;
+            --text-light: #F5F5F5;
+            --text-muted: #B0B3BC;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Raleway", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: radial-gradient(circle at top, #302F2B 0, #252B36 40%, #1A2517 100%);
+            color: var(--text-light);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            height: auto;
+        }
+
+        .container {
+            width: 92%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* HEADER */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(16px);
+            background: linear-gradient(to bottom, rgba(25, 25, 25, 0.9), rgba(25, 25, 25, 0.45));
+            border-bottom: 1px solid rgba(251, 199, 33, 0.1);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.8rem 0;
+            position: relative;
+            z-index: 60;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .logo-mark {
+            width: 34px;
+            height: 34px;
+            border-radius: 999px;
+            background: conic-gradient(from 140deg, #FBC721, #FFF5C0, #FBC721);
+            box-shadow: 0 0 32px rgba(251, 199, 33, 0.55);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .logo-mark::before {
+            content: "F";
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #252B36;
+        }
+
+        .logo-text {
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .logo-text span {
+            font-weight: 400;
+            color: var(--text-muted);
+            margin-left: 0.3rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.92rem;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            position: relative;
+            padding-bottom: 0.15rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-light);
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 2px;
+            width: 0;
+            background: var(--gold);
+            transition: width 0.2s ease-out;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            display: none;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            padding: 0.75rem 1.4rem;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.15s ease-out, box-shadow 0.15s ease-out, background 0.15s ease-out, border-color 0.15s ease-out;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: #252B36;
+            box-shadow: 0 10px 22px rgba(251, 199, 33, 0.35);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 16px 32px rgba(251, 199, 33, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-light);
+            border-color: rgba(251, 199, 33, 0.4);
+        }
+
+        .btn-outline:hover {
+            background: rgba(251, 199, 33, 0.08);
+        }
+
+        /* Hamburger Menü */
+        .nav-toggle {
+            display: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 999px;
+            border: 1px solid rgba(251, 199, 33, 0.4);
+            background: rgba(10, 11, 15, 0.9);
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .nav-toggle-bar {
+            width: 18px;
+            height: 2px;
+            background: var(--gold);
+            position: relative;
+            transition: transform 0.18s ease-out, background 0.18s ease-out;
+        }
+
+        .nav-toggle-bar::before,
+        .nav-toggle-bar::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 18px;
+            height: 2px;
+            background: var(--gold);
+            transition: transform 0.18s ease-out, opacity 0.18s ease-out, top 0.18s ease-out;
+        }
+
+        .nav-toggle-bar::before {
+            top: -6px;
+        }
+
+        .nav-toggle-bar::after {
+            top: 6px;
+        }
+
+        .nav-toggle.is-open .nav-toggle-bar {
+            background: transparent;
+        }
+
+        .nav-toggle.is-open .nav-toggle-bar::before {
+            transform: rotate(45deg);
+            top: 0;
+        }
+
+        .nav-toggle.is-open .nav-toggle-bar::after {
+            transform: rotate(-45deg);
+            top: 0;
+        }
+
+        .nav-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            z-index: 40;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.18s ease-out;
+        }
+
+        .nav-overlay.is-active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* HERO */
+        .hero {
+            padding: 3rem 0 2.6rem;
+        }
+
+        .hero-inner {
+            display: flex;
+            flex-direction: column;
+            gap: 2.3rem;
+        }
+
+        .hero-left {
+            max-width: 600px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: var(--text-muted);
+            margin-bottom: 1.1rem;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 34px;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--gold));
+        }
+
+        .hero-title {
+            font-size: clamp(2.1rem, 5vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 0.7rem;
+        }
+
+        .hero-title span {
+            color: var(--gold);
+        }
+
+        .hero-subtitle {
+            font-size: 0.98rem;
+            color: var(--text-muted);
+            max-width: 32rem;
+            margin-bottom: 1.4rem;
+        }
+
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 1.6rem;
+        }
+
+        .badge {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            border-radius: 999px;
+            border: 1px solid rgba(251, 199, 33, 0.35);
+            padding: 0.45rem 0.9rem;
+            color: var(--text-muted);
+            background: rgba(21, 21, 21, 0.6);
+        }
+
+        .hero-cta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.9rem;
+            align-items: center;
+            margin-bottom: 1.4rem;
+        }
+
+        .hero-note {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .hero-note span {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .contact-inline {
+            margin-top: 0.8rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .contact-inline strong {
+            color: var(--text-light);
+        }
+
+        .hero-right {
+            flex: 1;
+        }
+
+        .hero-panel {
+            background: radial-gradient(circle at top left, #302F2B 0, #191A1F 50%, #15181F 100%);
+            border-radius: 1.4rem;
+            padding: 1.8rem 1.6rem;
+            border: 1px solid rgba(251, 199, 33, 0.16);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .panel-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.1rem;
+            font-size: 0.9rem;
+        }
+
+        .panel-title {
+            font-weight: 600;
+        }
+
+        .panel-tag {
+            font-size: 0.78rem;
+            padding: 0.3rem 0.7rem;
+            border-radius: 999px;
+            background: rgba(251, 199, 33, 0.08);
+            border: 1px solid rgba(251, 199, 33, 0.3);
+            color: var(--gold);
+        }
+
+        .panel-grid {
+            display: grid;
+            gap: 0.8rem;
+        }
+
+        .panel-item {
+            background: rgba(25, 27, 35, 0.9);
+            border-radius: 0.9rem;
+            padding: 0.8rem 0.9rem;
+            border: 1px solid rgba(251, 199, 33, 0.08);
+        }
+
+        .panel-item-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--text-muted);
+            margin-bottom: 0.15rem;
+        }
+
+        .panel-item-value {
+            font-size: 0.95rem;
+        }
+
+        .panel-item-value span {
+            color: var(--gold);
+        }
+
+        .panel-footer {
+            margin-top: 1rem;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(251, 199, 33, 0.5), transparent);
+            margin: 0 auto 2.6rem;
+            width: 100%;
+            max-width: 760px;
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 2.3rem 0;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .section-subtitle {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            max-width: 32rem;
+        }
+
+        .section-header {
+            margin-bottom: 1.6rem;
+        }
+
+        /* SERVICES */
+        .cards {
+            display: grid;
+            gap: 1.25rem;
+        }
+
+        .card {
+            background: rgba(26, 28, 34, 0.96);
+            border-radius: 1.1rem;
+            padding: 1.2rem 1.1rem;
+            border: 1px solid rgba(251, 199, 33, 0.12);
+        }
+
+        .card h3 {
+            margin-bottom: 0.4rem;
+            font-size: 1.05rem;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 0.6rem;
+        }
+
+        .card ul {
+            list-style: none;
+            font-size: 0.86rem;
+            color: var(--text-muted);
+        }
+
+        .card ul li {
+            margin-bottom: 0.3rem;
+            position: relative;
+            padding-left: 1.1rem;
+        }
+
+        .card ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--gold);
+        }
+
+        /* PROCESS */
+        .steps {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .step {
+            display: flex;
+            gap: 0.8rem;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            width: 32px;
+            height: 32px;
+            border-radius: 999px;
+            border: 1px solid rgba(251, 199, 33, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: var(--gold);
+            flex-shrink: 0;
+        }
+
+        .step-body h3 {
+            font-size: 0.98rem;
+            margin-bottom: 0.15rem;
+        }
+
+        .step-body p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        /* PORTFOLIO (placeholder) */
+        .portfolio-grid {
+            display: grid;
+            gap: 1.1rem;
+        }
+
+        .portfolio-item {
+            background: rgba(26, 28, 34, 0.95);
+            border-radius: 1rem;
+            padding: 1rem;
+            border: 1px dashed rgba(251, 199, 33, 0.35);
+        }
+
+        .portfolio-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: var(--text-muted);
+            margin-bottom: 0.3rem;
+        }
+
+        .portfolio-item h3 {
+            font-size: 0.98rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .portfolio-item p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        /* ABOUT / FAQ */
+        .two-column {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .highlight-box {
+            background: rgba(14, 16, 20, 0.9);
+            border-radius: 1.1rem;
+            padding: 1.2rem 1.1rem;
+            border: 1px solid rgba(251, 199, 33, 0.15);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .highlight-box ul {
+            list-style: none;
+            margin-top: 0.6rem;
+        }
+
+        .highlight-box li {
+            margin-bottom: 0.35rem;
+            position: relative;
+            padding-left: 1.1rem;
+        }
+
+        .highlight-box li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 0.8rem;
+            color: var(--gold);
+        }
+
+        details {
+            background: rgba(26, 28, 34, 0.96);
+            border-radius: 0.9rem;
+            padding: 0.75rem 0.85rem;
+            border: 1px solid rgba(251, 199, 33, 0.08);
+            font-size: 0.88rem;
+        }
+
+        details + details {
+            margin-top: 0.5rem;
+        }
+
+        summary {
+            cursor: pointer;
+            list-style: none;
+            color: var(--text-light);
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: "+";
+            float: right;
+            color: var(--text-muted);
+        }
+
+        details[open] summary::after {
+            content: "−";
+        }
+
+        details p {
+            margin-top: 0.4rem;
+            color: var(--text-muted);
+        }
+
+        /* CONTACT */
+        .contact-grid {
+            display: grid;
+            gap: 1.4rem;
+        }
+
+        .contact-card {
+            background: rgba(26, 28, 34, 0.96);
+            border-radius: 1.1rem;
+            padding: 1.2rem 1.1rem;
+            border: 1px solid rgba(251, 199, 33, 0.18);
+            font-size: 0.9rem;
+        }
+
+        .contact-card p {
+            margin-bottom: 0.45rem;
+            color: var(--text-muted);
+        }
+
+        .contact-card strong {
+            color: var(--text-light);
+        }
+
+        .contact-card a.link {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        form {
+            display: grid;
+            gap: 0.7rem;
+            font-size: 0.86rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.15rem;
+            color: var(--text-muted);
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            border-radius: 0.7rem;
+            border: 1px solid rgba(251, 199, 33, 0.18);
+            background: rgba(10, 11, 15, 0.95);
+            color: var(--text-light);
+            padding: 0.65rem 0.7rem;
+            font-family: inherit;
+            font-size: 0.9rem;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: #666a73;
+        }
+
+        textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        /* MOBILE CTA BAR */
+        .mobile-cta-bar {
+            display: none;
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid rgba(251, 199, 33, 0.14);
+            padding: 1.5rem 0 2rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        footer .footer-inner {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        footer a {
+            color: var(--gold);
+        }
+
+        /* RESPONSIVE */
+        @media (min-width: 720px) {
+            .hero-inner {
+                flex-direction: row;
+            }
+
+            .hero-left {
+                flex: 1.2;
+            }
+
+            .hero-right {
+                flex: 1;
+            }
+
+            .cards {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+
+            .steps {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .portfolio-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+
+            .two-column {
+                grid-template-columns: 1.2fr 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1.1fr 1fr;
+            }
+
+            .nav-cta {
+                display: block;
+            }
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding-bottom: 4.2rem; /* sabit CTA bar için alan */
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 56px;
+                right: 4%;
+                left: 4%;
+                flex-direction: column;
+                gap: 0.8rem;
+                background: rgba(10, 11, 15, 0.98);
+                border-radius: 0.9rem;
+                padding: 0.8rem 1rem;
+                border: 1px solid rgba(251, 199, 33, 0.2);
+                display: none;
+            }
+
+            .nav-links.is-open {
+                display: flex;
+            }
+
+            .nav-toggle {
+                display: inline-flex;
+            }
+
+            .nav-cta {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 2.3rem;
+            }
+
+            .hero-subtitle {
+                max-width: 100%;
+            }
+
+            .mobile-cta-bar {
+                position: fixed;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 0.6rem;
+                padding: 0.6rem 1rem;
+                background: linear-gradient(to right, rgba(11, 12, 16, 0.98), rgba(37, 43, 54, 0.98));
+                border-top: 1px solid rgba(251, 199, 33, 0.32);
+                z-index: 55;
+            }
+
+            .mobile-cta-text {
+                font-size: 0.78rem;
+                color: var(--text-muted);
+            }
+
+            .mobile-cta-text span {
+                color: var(--gold);
+                font-weight: 600;
+            }
+
+            .mobile-cta-bar .btn-primary {
+                padding-inline: 1.2rem;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="nav-overlay"></div>
+        <div class="container">
+            <div class="nav">
+                <a href="#" class="logo" aria-label="GoldFlux Studio Ana Sayfa">
+                    <div class="logo-mark" aria-hidden="true"></div>
+                    <div class="logo-text">
+                        GoldFlux <span>Studio</span>
+                    </div>
+                </a>
+                <nav class="nav-links" aria-label="Ana menü">
+                    <a href="#services">Hizmetler</a>
+                    <a href="#process">Nasıl Çalışıyorum?</a>
+                    <a href="#portfolio">Örnekler</a>
+                    <a href="#contact">İletişim</a>
+                </nav>
+                <button class="nav-toggle" aria-label="Menüyü aç/kapat" aria-expanded="false">
+                    <span class="nav-toggle-bar" aria-hidden="true"></span>
+                </button>
+                <div class="nav-cta">
+                    <a class="btn btn-outline" href="https://wa.me/905421239770?text=Merhaba%20Hüseyin%2C%20GoldFlux%20Studio%27dan%20landing%20page%20tasarımı%20i%C3%A7in%20ileti%C5%9Fime%20ge%C3%A7iyorum." target="_blank" rel="noopener noreferrer">
+                        WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <main>
+        <section class="hero">
+            <div class="container hero-inner">
+                <div class="hero-left">
+                    <div class="eyebrow">Landing Page Tasarımı • Tüm Sektörler</div>
+                    <h1 class="hero-title">
+                        <span>Altın dokunuşla</span> dönüşüm yaratan Landing Page’ler.
+                    </h1>
+                    <p class="hero-subtitle">
+                        GoldFlux Studio ile işletmeniz için hızlı, modern, mobil uyumlu ve tamamen satış odaklı landing page’ler tasarlıyorum.
+                    </p>
+
+                    <div class="hero-badges">
+                        <span class="badge">Dönüşüm odaklı tasarım</span>
+                        <span class="badge">Tüm sektörler</span>
+                        <span class="badge">Mobil uyumlu</span>
+                        <span class="badge">Hızlı teslim</span>
+                    </div>
+
+                    <div class="hero-cta">
+                        <a class="btn btn-primary" href="https://wa.me/905421239770?text=Merhaba%20Hüseyin%2C%20landing%20page%20tasarımı%20i%C3%A7in%20fiyat%20ve%20detay%20almak%20istiyorum." target="_blank" rel="noopener noreferrer">
+                            WhatsApp’tan Teklif Al
+                        </a>
+                        <a class="btn btn-outline" href="https://instagram.com/huseyinelald1" target="_blank" rel="noopener noreferrer">
+                            Instagram Profilim
+                        </a>
+                    </div>
+
+                    <p class="hero-note">
+                        <span>Not:</span> İhtiyacına göre tamamen sıfırdan tasarım yapıyor, reklam ve satış hedeflerine uygun şekilde kurguluyorum.
+                    </p>
+
+                    <p class="contact-inline">
+                        <strong>WhatsApp:</strong> <a href="https://wa.me/905421239770" class="link" style="color:var(--gold);">+90 542 123 9770</a><br />
+                        <strong>Telefon:</strong> <a href="tel:+905421239770" class="link" style="color:var(--gold);">Ara</a><br />
+                        <strong>Instagram:</strong> @huseyinelald1
+                    </p>
+                </div>
+
+                <div class="hero-right">
+                    <!-- “Hizmet Özeti” Paneli -->
+                    <div class="hero-panel">
+                        <div class="panel-heading">
+                            <div class="panel-title">Pro Landing Page Özeti</div>
+                            <div class="panel-tag">GoldFlux Studio</div>
+                        </div>
+                        <div class="panel-grid">
+                            <div class="panel-item">
+                                <div class="panel-item-label">Hizmet</div>
+                                <div class="panel-item-value">
+                                    Tüm sektörlere uygun <span>tek sayfa satış sitesi</span> (Landing Page)
+                                </div>
+                            </div>
+                            <div class="panel-item">
+                                <div class="panel-item-label">Öne Çıkanlar</div>
+                                <div class="panel-item-value">
+                                    Satış odaklı metinler, modern tasarım, hızlı açılan sayfa, <span>mobil uyum</span>.
+                                </div>
+                            </div>
+                            <div class="panel-item">
+                                <div class="panel-item-label">Kimler İçin?</div>
+                                <div class="panel-item-value">
+                                    Girişimciler, küçük işletmeler, reklam verenler, online satış yapmak isteyenler.
+                                </div>
+                            </div>
+                            <div class="panel-item">
+                                <div class="panel-item-label">İletişim</div>
+                                <div class="panel-item-value">
+                                    WhatsApp: <span>+90 542 123 9770</span><br />
+                                    Instagram: <span>@huseyinelald1</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-footer">
+                            Kısa bir mesaj at; sektörünü, hedefini ve bütçeni yaz. Sana en uygun landing page yapısını birlikte belirleyelim.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- SERVICES -->
+        <section id="services">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Hizmetlerim</h2>
+                    <p class="section-subtitle">
+                        GoldFlux Studio olarak odaklandığım şey, sadece güzel görünen değil, gerçekten <strong>müşteri ve lead getiren</strong> landing page’ler tasarlamak.
+                    </p>
+                </div>
+
+                <div class="cards">
+                    <article class="card">
+                        <h3>Özel Landing Page Tasarımı</h3>
+                        <p>İşine özel, tamamen sana göre kurgulanmış tek sayfa satış sitesi tasarlıyorum.</p>
+                        <ul>
+                            <li>Hedef kitlene göre tasarım ve içerik</li>
+                            <li>İkna edici başlık ve metin yapısı</li>
+                            <li>Çağrı butonları (WhatsApp, form, arama vs.)</li>
+                        </ul>
+                    </article>
+
+                    <article class="card">
+                        <h3>Tüm Sektörlere Uygun Çözümler</h3>
+                        <p>Hizmet, ürün, kurs, danışmanlık veya yerel işletme fark etmez; her sektöre uyarlıyorum.</p>
+                        <ul>
+                            <li>Hizmet ve randevu siteleri</li>
+                            <li>Eğitim, kurs, danışmanlık satış sayfaları</li>
+                            <li>Yerel işletmeler (kuaför, kafe, klinik vb.)</li>
+                        </ul>
+                    </article>
+
+                    <article class="card">
+                        <h3>Hızlı Teslim & Destek</h3>
+                        <p>Projenin karmaşıklığına göre kısa sürede yayına hazır hale getiriyorum.</p>
+                        <ul>
+                            <li>Hızlı kurulum ve yayına alma</li>
+                            <li>Basit metin/görsel güncelleme desteği</li>
+                            <li>Reklam ve kampanya için uyumlu yapı</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROCESS -->
+        <section id="process">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Nasıl Çalışıyorum?</h2>
+                    <p class="section-subtitle">
+                        Süreci mümkün olduğunca net, hızlı ve düzenli tutuyorum. İhtiyacın olan sadece birkaç mesaj uzaklıkta.
+                    </p>
+                </div>
+
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-body">
+                            <h3>İhtiyaç Analizi</h3>
+                            <p>WhatsApp veya Instagram üzerinden işini, hedefini ve bütçeni konuşuyoruz.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-body">
+                            <h3>Tasarım & Yapı Önerisi</h3>
+                            <p>İşine en uygun sayfa akışını (başlık, güven unsurları, CTA, form vb.) kurguluyorum.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-body">
+                            <h3>Tasarımın Hazırlanması</h3>
+                            <p>Renk paleti, tipografi ve marka diline uygun tasarımı oluşturup seninle paylaşıyorum.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-body">
+                            <h3>Son Dokunuş & Yayına Alma</h3>
+                            <p>Düzenlemeleri yaptıktan sonra sayfanı yayına alıyor ve sana teslim ediyorum.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO (PLACEHOLDER) -->
+        <section id="portfolio">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Örnek Çalışma Türleri</h2>
+                    <p class="section-subtitle">
+                        Aşağıda, hazırlayabileceğim landing page türlerine örnekler görebilirsin. Gerçek projelerini ekledikçe burayı güncelleyebilirsin.
+                    </p>
+                </div>
+
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <div class="portfolio-label">Örnek</div>
+                        <h3>E-ticaret Ürünü Satış Sayfası</h3>
+                        <p>Tek ürüne odaklı, reklam kampanyalarına uygun, yüksek dönüşüm odaklı landing page yapısı.</p>
+                    </div>
+
+                    <div class="portfolio-item">
+                        <div class="portfolio-label">Örnek</div>
+                        <h3>Hizmet & Randevu Landing Page</h3>
+                        <p>Kuaför, klinik, psikolog, diyetisyen gibi randevu ve iletişim odaklı hizmet sayfaları.</p>
+                    </div>
+
+                    <div class="portfolio-item">
+                        <div class="portfolio-label">Örnek</div>
+                        <h3>Eğitim / Kurs Satış Sayfası</h3>
+                        <p>Ders, mentorluk veya online kurslar için detaylı ve ikna edici satış sayfaları.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT & FAQ -->
+        <section id="about">
+            <div class="container two-column">
+                <div>
+                    <div class="section-header">
+                        <h2 class="section-title">Neden GoldFlux Studio?</h2>
+                        <p class="section-subtitle">
+                            Renk paletim, tasarım dilim ve odaklandığım şey; sana <strong>altın değerinde satış sayfaları</strong> üretmek.
+                        </p>
+                    </div>
+
+                    <div class="highlight-box">
+                        Landing page’in; logo ve renklerden ibaret olmadığını biliyorum. Amacım:
+                        <ul>
+                            <li>Ziyaretçiyi tek bir hedefe yönlendirmek</li>
+                            <li>Müşterinin güvenini hızla kazanmak</li>
+                            <li>Reklam maliyetini boşa harcamadan dönüşüm almak</li>
+                            <li>Her sektöre uygun, esnek yapılar kurmak</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="section-header">
+                        <h2 class="section-title">Sık Sorulan Sorular</h2>
+                    </div>
+
+                    <details>
+                        <summary>Fiyatlar nasıl belirleniyor?</summary>
+                        <p>
+                            İhtiyacın olan sayfanın uzunluğu, ekstra entegrasyonlar (form, rezervasyon, e-posta vb.) ve teslim süresine göre fiyatlandırma yapıyorum.
+                            En net fiyatı WhatsApp üzerinden konuşabiliriz.
+                        </p>
+                    </details>
+
+                    <details>
+                        <summary>Hangi sektörde çalışıyorsun?</summary>
+                        <p>
+                            Hizmet, ürün, yerel işletme, eğitim/kurs, danışmanlık, sağlık, güzellik, B2B vb. pek çok sektöre uygun landing page tasarlıyorum.
+                        </p>
+                    </details>
+
+                    <details>
+                        <summary>Teslim süresi ne kadar?</summary>
+                        <p>
+                            Basit bir landing page genellikle birkaç gün içinde hazır olur. Daha detaylı projelerde süre değişebilir, bunu başta netleştiriyoruz.
+                        </p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">İletişime Geç</h2>
+                    <p class="section-subtitle">
+                        Birkaç mesajla başlayalım. Sektörünü, hedefini ve kısaca ne istediğini yazman yeterli.
+                    </p>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <p><strong>WhatsApp:</strong> <br /> <a class="link" href="https://wa.me/905421239770" target="_blank" rel="noopener noreferrer">+90 542 123 9770</a></p>
+                        <p><strong>Instagram:</strong> <br /> <a class="link" href="https://instagram.com/huseyinelald1" target="_blank" rel="noopener noreferrer">@huseyinelald1</a></p>
+                        <p>
+                            En hızlı dönüş için WhatsApp’tan şu bilgileri gönderebilirsin:
+                        </p>
+                        <ul style="margin-top:0.4rem; padding-left:1.1rem; font-size:0.86rem; color:var(--text-muted);">
+                            <li>Hangi sektörde olduğun</li>
+                            <li>Ne satmak / ne tanıtmak istediğin</li>
+                            <li>Reklam verip vermediğin</li>
+                        </ul>
+                    </div>
+
+                    <div class="contact-card">
+                        <!-- Bu formu backend bağlayana kadar görsel olarak durabilir -->
+                        <form action="#" method="post" novalidate>
+                            <div>
+                                <label for="name">Adın Soyadın</label>
+                                <input type="text" id="name" name="name" placeholder="Adını yaz" autocomplete="name" />
+                            </div>
+                            <div>
+                                <label for="sector">Sektörün</label>
+                                <input type="text" id="sector" name="sector" placeholder="Örn: Kuaför, E-ticaret, Danışmanlık..." />
+                            </div>
+                            <div>
+                                <label for="message">Kısaca ihtiyacın nedir?</label>
+                                <textarea id="message" name="message" placeholder="Landing page’de neyi hedefliyorsun?"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="margin-top:0.3rem;">
+                                (Örnek) Formu Gönder
+                            </button>
+                            <p style="font-size:0.75rem; color:var(--text-muted); margin-top:0.3rem;">
+                                Not: Bu form örnektir. Gerçek gönderim için bir e-posta servis veya backend ile bağlayabilirsin.
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- MOBIL SABIT CTA BAR -->
+    <div class="mobile-cta-bar">
+        <div class="mobile-cta-text">
+            <span>Hızlı teklif al</span><br>
+            WhatsApp üzerinden projen için yaz.
+        </div>
+        <a class="btn btn-primary" href="https://wa.me/905421239770?text=Merhaba%20Hüseyin%2C%20landing%20page%20tasarımı%20i%C3%A7in%20teklif%20almak%20istiyorum." target="_blank" rel="noopener noreferrer">
+            WhatsApp
+        </a>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-inner">
+            <div>© <span id="year"></span> GoldFlux Studio • Tüm hakları saklıdır.</div>
+            <div>Hazırlayan: Hüseyin Elaldı • <a href="https://instagram.com/huseyinelald1" target="_blank" rel="noopener noreferrer">@huseyinelald1</a></div>
+        </div>
+    </footer>
+
+    <script>
+        // Yılı otomatik güncelle ve mobil menü + overlay kontrolü
+        document.addEventListener("DOMContentLoaded", function () {
+            var yearSpan = document.getElementById("year");
+            if (yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
+            }
+
+            var navToggle = document.querySelector(".nav-toggle");
+            var navLinks = document.querySelector(".nav-links");
+            var navOverlay = document.querySelector(".nav-overlay");
+
+            function closeMenu() {
+                if (navLinks && navToggle) {
+                    navLinks.classList.remove("is-open");
+                    navToggle.classList.remove("is-open");
+                    navToggle.setAttribute("aria-expanded", "false");
+                }
+                if (navOverlay) {
+                    navOverlay.classList.remove("is-active");
+                }
+            }
+
+            if (navToggle && navLinks) {
+                navToggle.addEventListener("click", function () {
+                    var isOpen = navLinks.classList.toggle("is-open");
+                    navToggle.classList.toggle("is-open", isOpen);
+                    navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+                    if (navOverlay) {
+                        navOverlay.classList.toggle("is-active", isOpen);
+                    }
+                });
+
+                // Menüden bir linke tıklanınca menüyü kapat
+                navLinks.querySelectorAll("a").forEach(function (link) {
+                    link.addEventListener("click", function () {
+                        closeMenu();
+                    });
+                });
+            }
+
+            if (navOverlay) {
+                navOverlay.addEventListener("click", function () {
+                    closeMenu();
+                });
+            }
+        });
+    </script>
+</body>
 </html>
