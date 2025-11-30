@@ -1,1997 +1,254 @@
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GoldFlux Studio | Landing Page, Otomasyon ve Dijital Sistemler</title>
-
-    <!-- SEO -->
-    <meta name="description" content="GoldFlux Studio ile küçük işletmeler ve freelancerlar için landing page tasarımı, otomasyon kurulumu, dijital şablon paketleri, freelance prompt tasarımı ve dijital ürün dükkanı çözümleri.">
-    <meta name="keywords" content="landing page, küçük işletme otomasyonu, dijital şablon, Notion, Excel, Canva, prompt tasarımı, dijital ürün, GoldFlux Studio">
-
-    <!-- Open Graph (Paylaşım kartı) -->
-    <meta property="og:title" content="GoldFlux Studio | Küçük İşletmeler ve Freelancerlar için Dijital Sistemler">
-    <meta property="og:description" content="Landing page + otomasyon + dijital şablon + prompt sistemleri ile işini çalışan bir dijital yapıya dönüştür.">
-    <meta property="og:type" content="website">
-    <!-- Gerçek projede bu görseli oluşturup kök dizine koyabilirsin -->
-    <meta property="og:image" content="https://gurrentacar.github.io/goldflux/og-image.png">
-    <meta property="og:url" content="https://gurrentacar.github.io/goldflux/">
-
-    <!-- Favicon (daha sonra ekleyebilirsin) -->
-    <!-- <link rel="icon" href="/favicon.ico" /> -->
-
-    <!-- Performans için font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet" />
-
-    <style>
-        :root {
-            --gold: #FBC721;
-            --bg-dark: #252B36;
-            --bg-card: #302F2B;
-            --accent-dark: #1A2517;
-            --text-light: #F5F5F5;
-            --text-muted: #B0B3BC;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: "Raleway", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background: radial-gradient(circle at top, #302F2B 0, #252B36 40%, #1A2517 100%);
-            color: var(--text-light);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            text-rendering: optimizeLegibility;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
-            height: auto;
-        }
-
-        .container {
-            width: 92%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* HEADER */
-        .site-header {
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            backdrop-filter: blur(16px);
-            background: linear-gradient(to bottom, rgba(25, 25, 25, 0.9), rgba(25, 25, 25, 0.45));
-            border-bottom: 1px solid rgba(251, 199, 33, 0.1);
-        }
-
-        .nav {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0.8rem 0;
-            position: relative;
-            z-index: 60;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-        }
-
-        .logo-mark {
-            width: 34px;
-            height: 34px;
-            border-radius: 999px;
-            background: conic-gradient(from 140deg, #FBC721, #FFF5C0, #FBC721);
-            box-shadow: 0 0 32px rgba(251, 199, 33, 0.55);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            flex-shrink: 0;
-        }
-
-        .logo-mark::before {
-            content: "F";
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: #252B36;
-        }
-
-        .logo-text {
-            font-size: 1.1rem;
-            font-weight: 700;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-        }
-
-        .logo-text span {
-            font-weight: 400;
-            color: var(--text-muted);
-            margin-left: 0.3rem;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-            font-size: 0.92rem;
-        }
-
-        .nav-links a {
-            color: var(--text-muted);
-            position: relative;
-            padding-bottom: 0.15rem;
-        }
-
-        .nav-links a:hover {
-            color: var(--text-light);
-        }
-
-        .nav-links a::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            height: 2px;
-            width: 0;
-            background: var(--gold);
-            transition: width 0.2s ease-out;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .nav-cta {
-            display: none;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.4rem;
-            padding: 0.8rem 1.6rem;
-            border-radius: 999px;
-            border: 1px solid transparent;
-            font-size: 0.95rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.15s ease-out, box-shadow 0.15s ease-out, background 0.15s ease-out, border-color 0.15s ease-out, opacity 0.15s ease-out;
-            white-space: nowrap;
-        }
-
-        .btn-primary {
-            background: var(--gold);
-            color: #252B36;
-            box-shadow: 0 10px 22px rgba(251, 199, 33, 0.35);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 16px 32px rgba(251, 199, 33, 0.4);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--text-light);
-            border-color: rgba(251, 199, 33, 0.4);
-        }
-
-        .btn-outline:hover {
-            background: rgba(251, 199, 33, 0.08);
-        }
-
-        /* Hamburger Menü */
-        .nav-toggle {
-            display: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 999px;
-            border: 1px solid rgba(251, 199, 33, 0.4);
-            background: rgba(10, 11, 15, 0.9);
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
-
-        .nav-toggle-bar {
-            width: 18px;
-            height: 2px;
-            background: var(--gold);
-            position: relative;
-            transition: transform 0.18s ease-out, background 0.18s ease-out;
-        }
-
-        .nav-toggle-bar::before,
-        .nav-toggle-bar::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            width: 18px;
-            height: 2px;
-            background: var(--gold);
-            transition: transform 0.18s ease-out, opacity 0.18s ease-out, top 0.18s ease-out;
-        }
-
-        .nav-toggle-bar::before {
-            top: -6px;
-        }
-
-        .nav-toggle-bar::after {
-            top: 6px;
-        }
-
-        .nav-toggle.is-open .nav-toggle-bar {
-            background: transparent;
-        }
-
-        .nav-toggle.is-open .nav-toggle-bar::before {
-            transform: rotate(45deg);
-            top: 0;
-        }
-
-        .nav-toggle.is-open .nav-toggle-bar::after {
-            transform: rotate(-45deg);
-            top: 0;
-        }
-
-        .nav-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.45);
-            z-index: 40;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.18s ease-out;
-        }
-
-        .nav-overlay.is-active {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        /* HERO */
-        .hero {
-            padding: 3rem 0 2.6rem;
-        }
-
-        .hero-inner {
-            display: flex;
-            flex-direction: column;
-            gap: 2.3rem;
-        }
-
-        .hero-left {
-            max-width: 600px;
-        }
-
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.16em;
-            color: var(--text-muted);
-            margin-bottom: 1.1rem;
-        }
-
-        .eyebrow::before {
-            content: "";
-            width: 34px;
-            height: 1px;
-            background: linear-gradient(to right, transparent, var(--gold));
-        }
-
-        .hero-title {
-            font-size: clamp(2.1rem, 5vw, 3rem);
-            font-weight: 700;
-            margin-bottom: 0.7rem;
-        }
-
-        .hero-title span {
-            color: var(--gold);
-        }
-
-        .hero-subtitle {
-            font-size: 0.98rem;
-            color: var(--text-muted);
-            max-width: 32rem;
-            margin-bottom: 0.9rem;
-        }
-
-        .hero-trust-line {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 1.4rem;
-        }
-
-        .hero-trust-line span {
-            color: var(--gold);
-            font-weight: 600;
-        }
-
-        .hero-badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-            margin-bottom: 1.6rem;
-        }
-
-        .badge {
-            font-size: 0.78rem;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            border-radius: 999px;
-            border: 1px solid rgba(251, 199, 33, 0.35);
-            padding: 0.45rem 0.9rem;
-            color: var(--text-muted);
-            background: rgba(21, 21, 21, 0.6);
-        }
-
-        .hero-cta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.9rem;
-            align-items: center;
-            margin-bottom: 1.4rem;
-        }
-
-        .hero-note {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .hero-note span {
-            color: var(--gold);
-            font-weight: 600;
-        }
-
-        .contact-inline {
-            margin-top: 0.8rem;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .contact-inline strong {
-            color: var(--text-light);
-        }
-
-        .hero-right {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 1.1rem;
-        }
-
-        /* Mockup */
-        .hero-mockup {
-            background: radial-gradient(circle at top, #3a342b 0, #15181f 55%, #0b0d11 100%);
-            border-radius: 1.4rem;
-            padding: 1rem 1.1rem 1.3rem;
-            border: 1px solid rgba(251, 199, 33, 0.16);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-mockup-screen {
-            border-radius: 0.9rem;
-            border: 1px solid rgba(251, 199, 33, 0.18);
-            background: linear-gradient(145deg, #252b36, #1a1d25);
-            padding: 0.9rem;
-        }
-
-        .hero-mockup-topbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.6rem;
-            font-size: 0.74rem;
-            color: var(--text-muted);
-        }
-
-        .hero-mockup-dots {
-            display: flex;
-            gap: 0.25rem;
-        }
-
-        .hero-mockup-dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 999px;
-            background: rgba(251, 199, 33, 0.5);
-        }
-
-        .hero-mockup-main {
-            display: grid;
-            gap: 0.6rem;
-        }
-
-        .hero-mockup-title {
-            height: 12px;
-            border-radius: 999px;
-            background: linear-gradient(to right, rgba(251, 199, 33, 0.35), transparent);
-            width: 72%;
-        }
-
-        .hero-mockup-lines {
-            display: grid;
-            gap: 0.3rem;
-        }
-
-        .hero-mockup-line {
-            height: 7px;
-            border-radius: 999px;
-            background: rgba(255, 255, 255, 0.07);
-        }
-
-        .hero-mockup-line:nth-child(2) {
-            width: 80%;
-        }
-
-        .hero-mockup-line:nth-child(3) {
-            width: 60%;
-        }
-
-        .hero-mockup-cta-row {
-            margin-top: 0.4rem;
-            display: flex;
-            gap: 0.5rem;
-            align-items: center;
-        }
-
-        .hero-mockup-cta {
-            height: 26px;
-            flex: 1;
-            border-radius: 999px;
-            background: linear-gradient(to right, #fbc721, #f3e39b);
-        }
-
-        .hero-mockup-chip {
-            padding: 0.2rem 0.6rem;
-            border-radius: 999px;
-            border: 1px solid rgba(251, 199, 33, 0.4);
-            font-size: 0.7rem;
-            color: var(--text-muted);
-        }
-
-        .hero-panel {
-            background: radial-gradient(circle at top left, #302F2B 0, #191A1F 50%, #15181F 100%);
-            border-radius: 1.4rem;
-            padding: 1.5rem 1.4rem;
-            border: 1px solid rgba(251, 199, 33, 0.16);
-            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
-        }
-
-        .panel-heading {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.1rem;
-            font-size: 0.9rem;
-        }
-
-        .panel-title {
-            font-weight: 600;
-        }
-
-        .panel-tag {
-            font-size: 0.78rem;
-            padding: 0.3rem 0.7rem;
-            border-radius: 999px;
-            background: rgba(251, 199, 33, 0.08);
-            border: 1px solid rgba(251, 199, 33, 0.3);
-            color: var(--gold);
-        }
-
-        .panel-grid {
-            display: grid;
-            gap: 0.8rem;
-        }
-
-        .panel-item {
-            background: rgba(25, 27, 35, 0.9);
-            border-radius: 0.9rem;
-            padding: 0.8rem 0.9rem;
-            border: 1px solid rgba(251, 199, 33, 0.08);
-        }
-
-        .panel-item-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.14em;
-            color: var(--text-muted);
-            margin-bottom: 0.15rem;
-        }
-
-        .panel-item-value {
-            font-size: 0.95rem;
-        }
-
-        .panel-item-value span {
-            color: var(--gold);
-        }
-
-        .panel-footer {
-            margin-top: 1rem;
-            font-size: 0.78rem;
-            color: var(--text-muted);
-        }
-
-        .divider {
-            height: 1px;
-            background: linear-gradient(to right, transparent, rgba(251, 199, 33, 0.5), transparent);
-            margin: 0 auto 2.6rem;
-            width: 100%;
-            max-width: 760px;
-        }
-
-        /* SECTIONS */
-        section {
-            padding: 2.3rem 0;
-        }
-
-        .section-title {
-            font-size: 1.4rem;
-            margin-bottom: 0.6rem;
-        }
-
-        .section-subtitle {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            max-width: 32rem;
-        }
-
-        .section-header {
-            margin-bottom: 1.6rem;
-        }
-
-        /* CARDS GENEL */
-        .cards {
-            display: grid;
-            gap: 1.25rem;
-        }
-
-        .card {
-            background: rgba(26, 28, 34, 0.96);
-            border-radius: 1.1rem;
-            padding: 1.2rem 1.1rem;
-            border: 1px solid rgba(251, 199, 33, 0.12);
-            transition: transform 0.18s ease-out, box-shadow 0.18s ease-out, border-color 0.18s ease-out;
-        }
-
-        .card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 16px 38px rgba(0, 0, 0, 0.5);
-            border-color: rgba(251, 199, 33, 0.3);
-        }
-
-        .card h3 {
-            margin-bottom: 0.4rem;
-            font-size: 1.05rem;
-            display: flex;
-            align-items: center;
-            gap: 0.35rem;
-        }
-
-        .card h3 span.icon {
-            font-size: 1.1rem;
-        }
-
-        .card p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 0.6rem;
-        }
-
-        .card ul {
-            list-style: none;
-            font-size: 0.86rem;
-            color: var(--text-muted);
-        }
-
-        .card ul li {
-            margin-bottom: 0.3rem;
-            position: relative;
-            padding-left: 1.1rem;
-        }
-
-        .card ul li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            top: 0;
-            color: var(--gold);
-        }
-
-        /* TARGET AUDIENCE */
-        .audience-grid {
-            display: grid;
-            gap: 1.2rem;
-        }
-
-        .audience-card {
-            background: rgba(20, 22, 28, 0.96);
-            border-radius: 1.1rem;
-            padding: 1.1rem 1rem;
-            border: 1px solid rgba(251, 199, 33, 0.12);
-        }
-
-        .audience-label {
-            font-size: 0.76rem;
-            text-transform: uppercase;
-            letter-spacing: 0.14em;
-            color: var(--text-muted);
-            margin-bottom: 0.2rem;
-        }
-
-        .audience-card h3 {
-            font-size: 1rem;
-            margin-bottom: 0.3rem;
-        }
-
-        .audience-card p {
-            font-size: 0.88rem;
-            color: var(--text-muted);
-        }
-
-        /* PROCESS */
-        .steps {
-            display: grid;
-            gap: 1rem;
-        }
-
-        .step {
-            display: flex;
-            gap: 0.8rem;
-            align-items: flex-start;
-        }
-
-        .step-number {
-            width: 32px;
-            height: 32px;
-            border-radius: 999px;
-            border: 1px solid rgba(251, 199, 33, 0.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.9rem;
-            color: var(--gold);
-            flex-shrink: 0;
-        }
-
-        .step-body h3 {
-            font-size: 0.98rem;
-            margin-bottom: 0.15rem;
-        }
-
-        .step-body p {
-            font-size: 0.88rem;
-            color: var(--text-muted);
-        }
-
-        /* PORTFOLIO & CASES */
-        .portfolio-grid {
-            display: grid;
-            gap: 1.1rem;
-        }
-
-        .portfolio-item {
-            background: rgba(26, 28, 34, 0.95);
-            border-radius: 1rem;
-            padding: 1rem;
-            border: 1px dashed rgba(251, 199, 33, 0.35);
-        }
-
-        .portfolio-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.16em;
-            color: var(--text-muted);
-            margin-bottom: 0.3rem;
-        }
-
-        .portfolio-item h3 {
-            font-size: 0.98rem;
-            margin-bottom: 0.3rem;
-        }
-
-        .portfolio-item p {
-            font-size: 0.88rem;
-            color: var(--text-muted);
-        }
-
-        .case-tag {
-            font-size: 0.78rem;
-            padding: 0.2rem 0.6rem;
-            border-radius: 999px;
-            border: 1px solid rgba(251, 199, 33, 0.35);
-            color: var(--gold);
-            display: inline-block;
-            margin-bottom: 0.4rem;
-        }
-
-        .case-metrics {
-            margin-top: 0.5rem;
-            font-size: 0.82rem;
-            color: var(--text-muted);
-        }
-
-        /* BEFORE / AFTER */
-        .before-after {
-            display: grid;
-            gap: 1.2rem;
-        }
-
-        .ba-card {
-            background: rgba(20, 22, 28, 0.96);
-            border-radius: 1.1rem;
-            padding: 1.1rem 1rem;
-            border: 1px solid rgba(251, 199, 33, 0.12);
-            font-size: 0.9rem;
-        }
-
-        .ba-label {
-            font-size: 0.76rem;
-            text-transform: uppercase;
-            letter-spacing: 0.14em;
-            color: var(--text-muted);
-            margin-bottom: 0.3rem;
-        }
-
-        /* ABOUT / FAQ */
-        .two-column {
-            display: grid;
-            gap: 1.5rem;
-        }
-
-        .highlight-box {
-            background: rgba(14, 16, 20, 0.9);
-            border-radius: 1.1rem;
-            padding: 1.2rem 1.1rem;
-            border: 1px solid rgba(251, 199, 33, 0.15);
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        .highlight-box ul {
-            list-style: none;
-            margin-top: 0.6rem;
-        }
-
-        .highlight-box li {
-            margin-bottom: 0.35rem;
-            position: relative;
-            padding-left: 1.1rem;
-        }
-
-        .highlight-box li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            top: 0;
-            font-size: 0.8rem;
-            color: var(--gold);
-        }
-
-        details {
-            background: rgba(26, 28, 34, 0.96);
-            border-radius: 0.9rem;
-            padding: 0.75rem 0.85rem;
-            border: 1px solid rgba(251, 199, 33, 0.08);
-            font-size: 0.88rem;
-        }
-
-        details + details {
-            margin-top: 0.5rem;
-        }
-
-        summary {
-            cursor: pointer;
-            list-style: none;
-            color: var(--text-light);
-        }
-
-        summary::-webkit-details-marker {
-            display: none;
-        }
-
-        summary::after {
-            content: "+";
-            float: right;
-            color: var(--text-muted);
-        }
-
-        details[open] summary::after {
-            content: "−";
-        }
-
-        details p {
-            margin-top: 0.4rem;
-            color: var(--text-muted);
-        }
-
-        /* CONTACT */
-        .contact-grid {
-            display: grid;
-            gap: 1.4rem;
-        }
-
-        .contact-card {
-            background: rgba(26, 28, 34, 0.96);
-            border-radius: 1.1rem;
-            padding: 1.2rem 1.1rem;
-            border: 1px solid rgba(251, 199, 33, 0.18);
-            font-size: 0.9rem;
-        }
-
-        .contact-card p {
-            margin-bottom: 0.45rem;
-            color: var(--text-muted);
-        }
-
-        .contact-card strong {
-            color: var(--text-light);
-        }
-
-        .contact-card a.link {
-            color: var(--gold);
-            font-weight: 600;
-        }
-
-        form {
-            display: grid;
-            gap: 0.7rem;
-            font-size: 0.86rem;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 0.15rem;
-            color: var(--text-muted);
-        }
-
-        input,
-        textarea {
-            width: 100%;
-            border-radius: 0.7rem;
-            border: 1px solid rgba(251, 199, 33, 0.18);
-            background: rgba(10, 11, 15, 0.95);
-            color: var(--text-light);
-            padding: 0.65rem 0.7rem;
-            font-family: inherit;
-            font-size: 0.9rem;
-        }
-
-        input::placeholder,
-        textarea::placeholder {
-            color: #666a73;
-        }
-
-        textarea {
-            min-height: 110px;
-            resize: vertical;
-        }
-
-        /* TESTIMONIALS */
-        .testimonials-grid {
-            display: grid;
-            gap: 1.2rem;
-        }
-
-        .testimonial-card {
-            background: rgba(20, 22, 28, 0.96);
-            border-radius: 1.1rem;
-            padding: 1rem 1rem;
-            border: 1px solid rgba(251, 199, 33, 0.14);
-            font-size: 0.9rem;
-        }
-
-        .testimonial-name {
-            font-weight: 600;
-            margin-bottom: 0.2rem;
-        }
-
-        .testimonial-role {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-bottom: 0.5rem;
-        }
-
-        /* BLOG */
-        .blog-grid {
-            display: grid;
-            gap: 1.1rem;
-        }
-
-        .blog-card {
-            background: rgba(20, 22, 28, 0.96);
-            border-radius: 1.1rem;
-            padding: 1rem 1rem;
-            border: 1px solid rgba(251, 199, 33, 0.12);
-            font-size: 0.9rem;
-        }
-
-        .blog-card h3 {
-            font-size: 1.02rem;
-            margin-bottom: 0.3rem;
-        }
-
-        .blog-meta {
-            font-size: 0.78rem;
-            color: var(--text-muted);
-            margin-bottom: 0.4rem;
-        }
-
-        /* MOBILE CTA BAR */
-        .mobile-cta-bar {
-            display: none;
-        }
-
-        /* DESKTOP FLOATING WHATSAPP */
-        .floating-whatsapp {
-            position: fixed;
-            right: 18px;
-            bottom: 18px;
-            z-index: 60;
-            display: none;
-        }
-
-        .floating-whatsapp-button {
-            width: 54px;
-            height: 54px;
-            border-radius: 999px;
-            border: 1px solid rgba(37, 211, 102, 0.55);
-            background: radial-gradient(circle at top, #45ff9a 0, #128c7e 50%, #06261f 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 14px 36px rgba(0, 0, 0, 0.7);
-            cursor: pointer;
-        }
-
-        .floating-whatsapp-button span {
-            font-size: 1.4rem;
-        }
-
-        .floating-whatsapp-label {
-            position: absolute;
-            right: 62px;
-            bottom: 14px;
-            background: rgba(10, 11, 15, 0.96);
-            color: var(--text-muted);
-            padding: 0.45rem 0.7rem;
-            border-radius: 999px;
-            border: 1px solid rgba(251, 199, 33, 0.25);
-            font-size: 0.8rem;
-            white-space: nowrap;
-        }
-
-        /* FOOTER */
-        footer {
-            border-top: 1px solid rgba(251, 199, 33, 0.14);
-            padding: 1.5rem 0 2rem;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        footer .footer-inner {
-            display: flex;
-            flex-direction: column;
-            gap: 0.6rem;
-        }
-
-        footer a {
-            color: var(--gold);
-        }
-
-        .footer-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.9rem;
-            font-size: 0.82rem;
-        }
-
-        /* RESPONSIVE */
-        @media (min-width: 720px) {
-            .hero-inner {
-                flex-direction: row;
-            }
-
-            .hero-left {
-                flex: 1.2;
-            }
-
-            .hero-right {
-                flex: 1;
-            }
-
-            .cards {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-            }
-
-            #services .cards {
-                grid-template-columns: repeat(4, minmax(0, 1fr));
-            }
-
-            .audience-grid {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-            }
-
-            .steps {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-
-            .portfolio-grid {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-            }
-
-            .two-column {
-                grid-template-columns: 1.2fr 1fr;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1.1fr 1fr;
-            }
-
-            .testimonials-grid,
-            .blog-grid {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-            }
-
-            .nav-cta {
-                display: block;
-            }
-
-            .floating-whatsapp {
-                display: block;
-            }
-        }
-
-        @media (max-width: 640px) {
-            body {
-                padding-bottom: 4.2rem; /* sabit CTA bar için alan */
-            }
-
-            .nav-links {
-                position: absolute;
-                top: 56px;
-                right: 4%;
-                left: 4%;
-                flex-direction: column;
-                gap: 0.8rem;
-                background: rgba(10, 11, 15, 0.98);
-                border-radius: 0.9rem;
-                padding: 0.8rem 1rem;
-                border: 1px solid rgba(251, 199, 33, 0.2);
-                display: none;
-            }
-
-            .nav-links.is-open {
-                display: flex;
-            }
-
-            .nav-toggle {
-                display: inline-flex;
-            }
-
-            .nav-cta {
-                display: none;
-            }
-
-            .hero {
-                padding-top: 2.3rem;
-            }
-
-            .hero-subtitle {
-                max-width: 100%;
-            }
-
-            .mobile-cta-bar {
-                position: fixed;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                gap: 0.6rem;
-                padding: 0.6rem 1rem;
-                background: linear-gradient(to right, rgba(11, 12, 16, 0.98), rgba(37, 43, 54, 0.98));
-                border-top: 1px solid rgba(251, 199, 33, 0.32);
-                z-index: 55;
-            }
-
-            .mobile-cta-text {
-                font-size: 0.78rem;
-                color: var(--text-muted);
-            }
-
-            .mobile-cta-text span {
-                color: var(--gold);
-                font-weight: 600;
-            }
-
-            .mobile-cta-bar .btn-primary {
-                padding-inline: 1.2rem;
-                font-size: 0.85rem;
-            }
-        }
-    </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>GoldFluxAI — Mockup</title>
+<style>
+:root{
+  --gold:#FFD700;
+  --gold-glow:#FFEA80;
+  --black:#0D0D0D;
+  --graphite:#1F1F1F;
+  --carbon:#2B2B2B;
+  --silver:#D6D6D6;
+  --blue:#2962FF;
+  --success:#00C853;
+  --warning:#FFAB00;
+  --error:#D50000;
+  --radius:10px;
+  font-family: Inter, "SF Pro Display", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color:var(--silver);
+  background:linear-gradient(180deg,var(--black) 0%, #070707 70%);
+}
+
+/* Layout */
+.container{max-width:1200px;margin:0 auto;padding:28px;}
+.header{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:14px}
+.logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--gold),var(--gold-glow));display:flex;align-items:center;justify-content:center;color:var(--black);font-weight:800;box-shadow:0 6px 24px rgba(255,215,0,0.12);font-family:monospace}
+.nav a{color:var(--silver);text-decoration:none;margin-left:18px;font-weight:500}
+.hero{display:grid;grid-template-columns:1fr 420px;gap:36px;align-items:center;padding:48px 0}
+.h-title{font-size:40px;color:white;line-height:1.03;margin:0}
+.h-sub{color:#CFCFCF;margin-top:12px;font-size:16px}
+.cta-row{display:flex;gap:12px;margin-top:22px}
+.btn{padding:12px 18px;border-radius:10px;border:none;cursor:pointer;font-weight:700}
+.btn-primary{background:var(--gold);color:var(--black);box-shadow:0 8px 30px rgba(255,215,0,0.12)}
+.btn-ghost{background:transparent;border:1px solid rgba(214,214,214,0.08);color:var(--silver)}
+
+/* Right card */
+.promo-card{background:linear-gradient(180deg, rgba(255,215,0,0.04), rgba(255,215,0,0.02));border:1px solid rgba(255,215,0,0.08);padding:22px;border-radius:14px}
+.promo-card h4{color:var(--gold);margin:0 0 8px 0}
+.features{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}
+.feature{font-size:14px;color:#E7E7E7;padding:8px 6px;border-radius:8px;display:flex;gap:10px;align-items:center}
+
+/* Features band */
+.features-band{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0;padding:18px;border-radius:12px;background:linear-gradient(90deg, rgba(41,98,255,0.06), rgba(255,234,128,0.02))}
+
+/* Dashboard sample */
+.dashboard{margin-top:30px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));padding:18px;border-radius:12px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--graphite);padding:18px;border-radius:12px;border:1px solid rgba(214,214,214,0.03)}
+.card h5{margin:0;color:white}
+.card p{margin:8px 0 0 0;color:#CFCFCF;font-size:13px}
+
+/* Chat widget bottom-right */
+.chat-widget{position:fixed;right:22px;bottom:22px;width:340px;max-width:90%;border-radius:14px;background:linear-gradient(180deg,#111,#0d0d0d);box-shadow:0 14px 40px rgba(0,0,0,0.6);border:1px solid rgba(255,215,0,0.08);overflow:hidden}
+.chat-header{display:flex;align-items:center;gap:12px;padding:12px;border-bottom:1px solid rgba(214,214,214,0.04)}
+.chat-header .logo-small{width:36px;height:36px;border-radius:9px;background:linear-gradient(135deg,var(--gold),var(--gold-glow));display:flex;align-items:center;justify-content:center;color:var(--black);font-weight:800}
+.chat-body{height:220px;overflow:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+.msg{max-width:78%;padding:10px;border-radius:10px}
+.msg.user{align-self:flex-end;background:linear-gradient(180deg, #FFD70022, #FFD70011);color:white}
+.msg.ai{align-self:flex-start;background:#1F1F1F;border:1px solid rgba(214,214,214,0.03);color:#E7E7E7}
+.chat-input{display:flex;border-top:1px solid rgba(214,214,214,0.03);padding:10px;gap:8px}
+.input{flex:1;padding:10px;border-radius:8px;background:#111;border:1px solid #222;color:var(--silver)}
+.buy-note{padding:10px;text-align:center;border-top:1px dashed rgba(214,214,214,0.03);font-size:13px;color:#BFBFBF}
+
+/* Paywall overlay */
+.paywall{position:absolute;inset:0;background:linear-gradient(180deg, rgba(13,13,13,0.85), rgba(13,13,13,0.95));display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;padding:16px}
+.paywall h4{color:var(--gold);margin:0}
+.paywall p{color:#DFDFDF;margin:0;text-align:center}
+.paywall .price{font-weight:800;font-size:20px;color:white}
+
+/* Animation: Gold flux ribbon (used in hero) */
+.flux-wrap{position:relative;height:72px;overflow:visible}
+.ribbon{position:absolute;left:-10%;right:-10%;height:72px;border-radius:36px;background:linear-gradient(90deg,var(--gold),var(--gold-glow));filter:blur(18px);opacity:0.9;transform:skewX(-15deg);animation:flow 6s linear infinite}
+.ribbon:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg, rgba(255,255,255,0.08), rgba(0,0,0,0.05));border-radius:36px;mix-blend-mode:overlay}
+@keyframes flow{
+  0%{transform:translateX(-100%) skewX(-15deg)}
+  50%{transform:translateX(20%) skewX(-12deg)}
+  100%{transform:translateX(120%) skewX(-15deg)}
+}
+
+/* Responsive */
+@media(max-width:980px){
+  .hero{grid-template-columns:1fr;gap:20px}
+  .grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:640px){
+  .grid{grid-template-columns:1fr}
+  .header{flex-direction:column;align-items:flex-start}
+  .h-title{font-size:28px}
+  .chat-widget{width:92%;right:4%;bottom:18px}
+}
+</style>
 </head>
 <body>
-    <!-- HEADER -->
-    <header class="site-header">
-        <div class="nav-overlay"></div>
-        <div class="container">
-            <div class="nav">
-                <a href="#" class="logo" aria-label="GoldFlux Studio Ana Sayfa">
-                    <div class="logo-mark" aria-hidden="true"></div>
-                    <div class="logo-text">
-                        GoldFlux <span>Studio</span>
-                    </div>
-                </a>
-                <nav class="nav-links" aria-label="Ana menü">
-                    <a href="#services">Hizmetler</a>
-                    <a href="#audience">Kimin İçin?</a>
-                    <a href="#packages">Paketler</a>
-                    <a href="#shop">Dijital Dükkan</a>
-                    <a href="#portfolio">Örnekler</a>
-                    <a href="#testimonials">Yorumlar</a>
-                    <a href="#blog">Blog</a>
-                    <a href="#contact">İletişim</a>
-                </nav>
-                <button class="nav-toggle" aria-label="Menüyü aç/kapat" aria-expanded="false">
-                    <span class="nav-toggle-bar" aria-hidden="true"></span>
-                </button>
-                <div class="nav-cta">
-                    <a class="btn btn-outline" href="https://wa.me/905421239770?text=Merhaba%20Hüseyin%2C%20GoldFlux%20Studio%27dan%20dijital%20sistem%20ve%20landing%20page%20tasar%C4%B1m%C4%B1%20i%C3%A7in%20ileti%C5%9Fime%20ge%C3%A7iyorum." target="_blank" rel="noopener noreferrer">
-                        WhatsApp
-                    </a>
-                </div>
-            </div>
-        </div>
+  <div class="container">
+    <header class="header">
+      <div class="brand"><div class="logo">GF</div><div style="color:white;font-weight:700">GoldFluxAI</div></div>
+      <nav class="nav"><a href="#">Ürün</a><a href="#">Fiyatlandırma</a><a href="#">Dokümantasyon</a><a href="#">Giriş</a></nav>
     </header>
 
-    <!-- HERO -->
-    <main>
-        <section class="hero">
-            <div class="container hero-inner">
-                <div class="hero-left">
-                    <div class="eyebrow">Landing Page • Otomasyon • Dijital Şablonlar</div>
-                    <h1 class="hero-title">
-                        <span>Altın dokunuşla</span> çalışan landing page ve dijital sistemler kuruyorum.
-                    </h1>
-                    <p class="hero-subtitle">
-                        GoldFlux Studio ile küçük işletmeler ve freelancer’lar için; satış odaklı landing page, otomasyon kurulumu, dijital şablon paketleri ve yapay zekâ destekli prompt sistemleri tasarlıyorum.
-                    </p>
+    <main class="hero">
+      <div>
+        <div class="flux-wrap" aria-hidden="true"><div class="ribbon"></div></div>
+        <h1 class="h-title">Zekânın Altın Akışı</h1>
+        <p class="h-sub">Her alanda ultra hızlı, kesin ve premium yapay zekâ deneyimi. Sohbet et, kod yazdır, içerik üret — hepsi tek platformda.</p>
+        <div class="cta-row">
+          <button class="btn btn-primary">Ücretsiz Başla</button>
+          <button class="btn btn-ghost">Demo’yu Gör</button>
+        </div>
 
-                    <p class="hero-trust-line">
-                        <span>Küçük işletme, freelancer ve dijital ürün üretenler</span> için: dağınık işleri tek bir sistem altında topluyorum.
-                    </p>
+        <div class="features-band" aria-hidden="false">
+          <div class="feature">⚡ Gerçek Zamanlı Yanıt</div>
+          <div class="feature">🧠 Çok Alanlı Uzmanlık</div>
+          <div class="feature">💻 Developer Mode</div>
+          <div class="feature">✍️ İçerik Motoru</div>
+          <div class="feature">🔒 Güvenlik Odaklı</div>
+        </div>
 
-                    <div class="hero-badges">
-                        <span class="badge">Dönüşüm odaklı tasarım</span>
-                        <span class="badge">Küçük işletme otomasyonu</span>
-                        <span class="badge">Freelance prompt sistemleri</span>
-                        <span class="badge">Dijital ürün dükkanı</span>
-                    </div>
-
-                    <div class="hero-cta">
-                        <a class="btn btn-primary" href="https://wa.me/905421239770?text=Merhaba%20Hüseyin%2C%20GoldFlux%20Studio%20hizmetleri%20veya%20paketleri%20i%C3%A7in%20teklif%20almak%20istiyorum." target="_blank" rel="noopener noreferrer">
-                            WhatsApp’tan Teklif Al
-                        </a>
-                        <a class="btn btn-outline" href="https://instagram.com/huseyinelald1" target="_blank" rel="noopener noreferrer">
-                            Instagram Profilim
-                        </a>
-                    </div>
-
-                    <p class="hero-note">
-                        <span>Not:</span> Sadece tasarım yapmıyorum; işine uygun <strong>çalışan dijital sistem</strong> kuruyorum. Landing page + otomasyon + şablon + AI.
-                    </p>
-
-                    <p class="contact-inline">
-                        <strong>WhatsApp:</strong> <a href="https://wa.me/905421239770" class="link" style="color:var(--gold);">+90 542 123 9770</a><br />
-                        <strong>Telefon:</strong> <a href="tel:+905421239770" class="link" style="color:var(--gold);">Ara</a><br />
-                        <strong>Instagram:</strong> @huseyinelald1
-                    </p>
-                </div>
-
-                <div class="hero-right">
-                    <!-- Mockup -->
-                    <div class="hero-mockup" aria-hidden="true">
-                        <div class="hero-mockup-screen">
-                            <div class="hero-mockup-topbar">
-                                <div class="hero-mockup-dots">
-                                    <div class="hero-mockup-dot"></div>
-                                    <div class="hero-mockup-dot" style="opacity:0.6;"></div>
-                                    <div class="hero-mockup-dot" style="opacity:0.3;"></div>
-                                </div>
-                                <div>goldflux.studio</div>
-                            </div>
-                            <div class="hero-mockup-main">
-                                <div class="hero-mockup-title"></div>
-                                <div class="hero-mockup-lines">
-                                    <div class="hero-mockup-line"></div>
-                                    <div class="hero-mockup-line"></div>
-                                    <div class="hero-mockup-line"></div>
-                                </div>
-                                <div class="hero-mockup-cta-row">
-                                    <div class="hero-mockup-cta"></div>
-                                    <div class="hero-mockup-chip">Landing Page</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- “Hizmet Özeti” Paneli -->
-                    <div class="hero-panel">
-                        <div class="panel-heading">
-                            <div class="panel-title">GoldFlux Dijital Sistem Özeti</div>
-                            <div class="panel-tag">Studio</div>
-                        </div>
-                        <div class="panel-grid">
-                            <div class="panel-item">
-                                <div class="panel-item-label">Ne Yapıyorum?</div>
-                                <div class="panel-item-value">
-                                    Landing page tasarımı, küçük işletme otomasyonu, dijital şablon paketleri ve <span>freelance prompt sistemleri</span>.
-                                </div>
-                            </div>
-                            <div class="panel-item">
-                                <div class="panel-item-label">Kimler İçin?</div>
-                                <div class="panel-item-value">
-                                    Küçük işletmeler, freelancer’lar, koçlar, eğitmenler, ajanslar ve dijital ürün satanlar.
-                                </div>
-                            </div>
-                            <div class="panel-item">
-                                <div class="panel-item-label">Öne Çıkanlar</div>
-                                <div class="panel-item-value">
-                                    Satış odaklı sayfa kurgusu, Notion/Excel şablonları, AI prompt setleri, dijital ürün dükkanı yapısı.
-                                </div>
-                            </div>
-                            <div class="panel-item">
-                                <div class="panel-item-label">İletişim</div>
-                                <div class="panel-item-value">
-                                    WhatsApp: <span>+90 542 123 9770</span><br />
-                                    Instagram: <span>@huseyinelald1</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel-footer">
-                            Sektörünü ve hedefini kısaca yaz; senin için en mantıklı landing page + sistem paketini birlikte seçelim.
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <section class="dashboard">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+            <h3 style="color:white;margin:0">Örnek Dashboard</h3><small style="color:#9a9a9a">Canlı kurgusal veriler</small>
+          </div>
+          <div class="grid">
+            <div class="card"><h5>Model Kullanımı</h5><p>%23 artış — 14 günlük trend</p></div>
+            <div class="card"><h5>Sohbet Etkileşimleri</h5><p>Günlük 1.2K aktif kullanıcı</p></div>
+            <div class="card"><h5>Gelir</h5><p>Abonelik: 499.90 ₺ — Ödeme akışı örneği</p></div>
+          </div>
         </section>
+      </div>
 
-        <div class="divider"></div>
-
-        <!-- TARGET AUDIENCE -->
-        <section id="audience">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Kimin İçin Çalışıyorum?</h2>
-                    <p class="section-subtitle">
-                        GoldFlux Studio; küçük işletme, freelancer ve dijital ürün üretenler için tasarlandı.
-                    </p>
-                </div>
-
-                <div class="audience-grid">
-                    <div class="audience-card">
-                        <div class="audience-label">Küçük İşletmeler</div>
-                        <h3>Telefonu çalan, düzenli müşteri akışı isteyenler için</h3>
-                        <p>
-                            Randevu, hizmet veya ürün satan işletmelerin; landing page + WhatsApp + otomasyon ile
-                            daha düzenli ve takip edilebilir bir sistem kurmasına yardımcı oluyorum.
-                        </p>
-                    </div>
-
-                    <div class="audience-card">
-                        <div class="audience-label">Freelancer & Koçlar</div>
-                        <h3>“Kaos değil sistem” diyen serbest çalışanlar için</h3>
-                        <p>
-                            Teklif, müşteri ve proje takibini; Notion, şablonlar ve AI prompt setleri ile düzenleyerek
-                            serbest çalışanların daha profesyonel ve hızlı çalışmasını sağlıyorum.
-                        </p>
-                    </div>
-
-                    <div class="audience-card">
-                        <div class="audience-label">Dijital Ürün Satanlar</div>
-                        <h3>Şablon, eğitim, ürün satan içerik üreticileri için</h3>
-                        <p>
-                            Dijital ürün dükkanı yapısı, satış sayfaları, upsell/cross-sell akışları ve içerik planları ile
-                            daha sistemli ve ölçeklenebilir bir dijital gelir modeli kurmana destek oluyorum.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="divider"></div>
-
-        <!-- SERVICES: Dijital Çözümler -->
-        <section id="services">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Hizmetlerim & Dijital Çözümler</h2>
-                    <p class="section-subtitle">
-                        Küçük işletmeler, freelancer’lar ve dijital ürün satanlar için; landing page, otomasyon,
-                        dijital şablonlar ve yapay zekâ destekli sistemler kuruyorum.
-                    </p>
-                </div>
-
-                <div class="cards">
-                    <article class="card">
-                        <h3><span class="icon">⚡</span>Küçük İşletmeler İçin Otomasyon Kurulumu</h3>
-                        <p>
-                            Tekrarlayan işlerini otomatikleştiriyorum. Mail, randevu, form ve takip süreçleri senin yerine sistem tarafından yönetilsin.
-                        </p>
-                        <ul>
-                            <li>Randevu, form ve mail otomasyonları</li>
-                            <li>Müşteri ve iş takibi için dijital panolar</li>
-                            <li>Daha az hata, daha fazla zaman</li>
-                        </ul>
-                    </article>
-
-                    <article class="card">
-                        <h3><span class="icon">📁</span>Dijital Şablon Paketleri (Notion, Excel, Canva)</h3>
-                        <p>
-                            İşini düzenlemek ve hızlandırmak için hazır dijital şablon paketleri: içerik takvimi, müşteri takibi,
-                            iş planı ve daha fazlası.
-                        </p>
-                        <ul>
-                            <li>Notion, Excel, Canva için hazır setler</li>
-                            <li>Markana göre özelleştirilebilir yapılar</li>
-                            <li>Tek sefer al, sınırsız kullan</li>
-                        </ul>
-                    </article>
-
-                    <article class="card">
-                        <h3><span class="icon">🤖</span>Freelance Prompt Tasarımı</h3>
-                        <p>
-                            ChatGPT ve yapay zeka araçları için işine özel prompt sistemleri kuruyorum. Tek tıkla tekrar tekrar
-                            kullanabileceğin akıllı kalıplar.
-                        </p>
-                        <ul>
-                            <li>Freelancer ve ajanslar için özel prompt setleri</li>
-                            <li>İçerik, teklif, mail ve metin üretiminde hız</li>
-                            <li>İşine göre kişiselleştirilmiş AI iş akışları</li>
-                        </ul>
-                    </article>
-
-                    <article class="card">
-                        <h3><span class="icon">🛒</span>Dijital Ürün Dükkanı Kurulumu</h3>
-                        <p>
-                            Landing page, ürün sayfaları ve dijital şablonlarınla küçük ama etkili bir dijital ürün dükkanı kurmana yardımcı oluyorum.
-                        </p>
-                        <ul>
-                            <li>Dijital ürün satış sayfası yapısı</li>
-                            <li>Upsell / cross-sell akış önerileri</li>
-                            <li>Şablon ve mini eğitim paketleri için yapı</li>
-                        </ul>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- PROCESS -->
-        <section id="process">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Nasıl Çalışıyorum?</h2>
-                    <p class="section-subtitle">
-                        Süreci mümkün olduğunca net, hızlı ve düzenli tutuyorum. İhtiyacın olan sadece birkaç mesaj uzaklıkta.
-                    </p>
-                </div>
-
-                <div class="steps">
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <div class="step-body">
-                            <h3>İhtiyaç Analizi</h3>
-                            <p>WhatsApp veya Instagram üzerinden işini, hedefini ve bütçeni konuşuyoruz.</p>
-                        </div>
-                    </div>
-
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <div class="step-body">
-                            <h3>Yapı & Paket Önerisi</h3>
-                            <p>Senin için en mantıklı landing page + otomasyon + şablon kombinasyonunu belirliyorum.</p>
-                        </div>
-                    </div>
-
-                    <div class="step">
-                        <div class="step-number">3</div>
-                        <div class="step-body">
-                            <h3>Tasarım ve Kurulum</h3>
-                            <p>Sayfaları, dijital şablonları ve gerekirse otomasyonları kurup test ediyorum.</p>
-                        </div>
-                    </div>
-
-                    <div class="step">
-                        <div class="step-number">4</div>
-                        <div class="step-body">
-                            <h3>Teslim & Destek</h3>
-                            <p>Sistemi teslim ettikten sonra, belirli süre WhatsApp üzerinden destek olmaya devam ediyorum.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PACKAGES -->
-        <section id="packages">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Hazır Paketlerim</h2>
-                    <p class="section-subtitle">
-                        Küçük işletmeler, freelancer’lar ve dijital ürün satanlar için; tasarım, otomasyon ve yapay zekâ destekli sistemleri
-                        <strong>hazır paketler</strong> haline getirdim. İhtiyacına göre Starter, Pro veya Studio paketlerinden birini seçebilirsin.
-                    </p>
-                </div>
-
-                <div class="cards">
-                    <!-- STARTER -->
-                    <article class="card">
-                        <h3><span class="icon">🌱</span>Starter Paket</h3>
-                        <p><strong>Önerilen fiyat:</strong> 2.500 ₺ – 4.000 ₺</p>
-                        <p>
-                            İlk adımını atmak isteyenler için ideal başlangıç paketi. Profesyonel, mobil uyumlu ve dönüşüm odaklı bir landing page ile
-                            markanı internette konumlandır.
-                        </p>
-                        <ul>
-                            <li>1 adet sektöre uygun landing page tasarımı</li>
-                            <li>Mobil uyumlu, hızlı açılan yapı</li>
-                            <li>WhatsApp / telefon CTA entegrasyonu</li>
-                            <li>Basit iletişim formu (örnek form)</li>
-                            <li>1 tur revizyon</li>
-                        </ul>
-                    </article>
-
-                    <!-- PRO -->
-                    <article class="card">
-                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
-                            <h3 style="margin-bottom:0;"><span class="icon">🚀</span>Pro Paket</h3>
-                            <span class="badge">En çok tercih edilen</span>
-                        </div>
-                        <p><strong>Önerilen fiyat:</strong> 6.000 ₺ – 9.000 ₺</p>
-                        <p>
-                            İşini bir üst seviyeye taşımak isteyen küçük işletmeler için tasarlandı. Landing page’in yanında otomasyonlar ve
-                            yapay zekâ destekli içerik sistemleri de kuruyorum.
-                        </p>
-                        <ul>
-                            <li>Starter paketteki tüm özellikler</li>
-                            <li>Küçük işletme için Notion kontrol paneli</li>
-                            <li>Form → Google Sheets’e otomatik kayıt sistemi</li>
-                            <li>Form sonrası müşteriye gönderilecek örnek mail taslağı</li>
-                            <li>10 adet işine özel ChatGPT prompt paketi</li>
-                            <li>Görsel sıkıştırma ve temel hız optimizasyonu</li>
-                            <li>Temel SEO ayarları (başlık, açıklama, og:image)</li>
-                            <li>7 gün WhatsApp üzerinden destek</li>
-                        </ul>
-                    </article>
-
-                    <!-- STUDIO -->
-                    <article class="card">
-                        <h3><span class="icon">🎛️</span>Studio Paket</h3>
-                        <p><strong>Önerilen fiyat:</strong> 10.000 ₺ – 18.000 ₺</p>
-                        <p>
-                            Dijital işini A’dan Z’ye kurmak isteyenler için en kapsamlı paket. Hem vitrinini hem de arkadaki sistemi beraber tasarlıyorum.
-                        </p>
-                        <ul>
-                            <li>Pro paketteki tüm özellikler</li>
-                            <li>2–3 farklı landing page varyasyonu</li>
-                            <li>Dijital ürün dükkanı sayfası (şablon / eğitim satışı için)</li>
-                            <li>Notion + Excel + Canva’dan oluşan tam şablon seti</li>
-                            <li>Instagram için 20 adet içerik fikri ve kısa metin</li>
-                            <li>Reklam için 10 adet hazır metin (Meta / Google)</li>
-                            <li>Gelişmiş hız ve UX düzenlemeleri</li>
-                            <li>14 gün WhatsApp üzerinden destek</li>
-                        </ul>
-                    </article>
-                </div>
-
-                <div style="margin-top:1.5rem; font-size:0.85rem; color:var(--text-muted);">
-                    Fiyatlar proje kapsamına ve ekstra taleplere göre değişebilir. Detaylı teklif almak için WhatsApp üzerinden
-                    <a href="https://wa.me/905421239770?text=Merhaba%20Hüseyin%2C%20GoldFlux%20paketleri%20hakk%C4%B1nda%20detay%20ve%20fiyat%20almak%20istiyorum." style="color:var(--gold); font-weight:600;" target="_blank" rel="noopener noreferrer">
-                        benimle iletişime geçebilirsin.
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- SHOP -->
-        <section id="shop">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Dijital Ürün Dükkanı</h2>
-                    <p class="section-subtitle">
-                        Notion, Excel, Canva, AI prompt paketleri ve mini eğitimlerden oluşan dijital ürün dükkanım.
-                        Zaman kazandıran, işini düzenleyen ve daha profesyonel görünmeni sağlayan sistemler tasarlıyorum.
-                    </p>
-                </div>
-
-                <div class="cards">
-                    <!-- Ürün 1 -->
-                    <article class="card">
-                        <h3><span class="icon">📊</span>Notion İşletme Kontrol Paneli</h3>
-                        <p>
-                            Küçük işletmeler için müşteri, iş ve gelir takibini tek ekranda toplayan Notion kontrol paneli.
-                        </p>
-                        <ul>
-                            <li>Müşteri ve proje listesi</li>
-                            <li>Durum takibi (yeni, teklif, onaylandı)</li>
-                            <li>Basit gelir/gider görünümü</li>
-                        </ul>
-                        <a href="#contact" class="btn btn-outline" style="margin-top:0.6rem;">Detay / Satın Alma için İletişim</a>
-                    </article>
-
-                    <!-- Ürün 2 -->
-                    <article class="card">
-                        <h3><span class="icon">📄</span>Freelancer Dijital Düzen Paketi</h3>
-                        <p>
-                            Fiyat listesi, teklif metni, sözleşme ve proje takip şablonlarından oluşan temel düzen paketi.
-                        </p>
-                        <ul>
-                            <li>Fiyat listesi & teklif şablonu</li>
-                            <li>Sözleşme taslağı (metin örneği)</li>
-                            <li>Proje ve teslim tarihleri tablosu</li>
-                        </ul>
-                        <a href="#contact" class="btn btn-outline" style="margin-top:0.6rem;">WhatsApp’tan Sor</a>
-                    </article>
-
-                    <!-- Ürün 3 -->
-                    <article class="card">
-                        <h3><span class="icon">🧠</span>AI Prompt Paketleri (İşine Özel)</h3>
-                        <p>
-                            ChatGPT ve benzeri araçlar için; içerik, mail, teklif ve sosyal medya odaklı kullanabileceğin hazır prompt setleri.
-                        </p>
-                        <ul>
-                            <li>10–20 adet işine özel prompt</li>
-                            <li>Tekrar tekrar kullanabileceğin yapı</li>
-                            <li>Örnek çıktı ve kullanım notları</li>
-                        </ul>
-                        <a href="#contact" class="btn btn-outline" style="margin-top:0.6rem;">Prompt Paketi Talep Et</a>
-                    </article>
-
-                    <!-- Ürün 4 -->
-                    <article class="card">
-                        <h3><span class="icon">🎨</span>Canva Sosyal Medya Şablon Seti</h3>
-                        <p>
-                            Instagram feed ve story paylaşımların için markana göre düzenlenebilir Canva şablon seti.
-                        </p>
-                        <ul>
-                            <li>10+ feed post şablonu</li>
-                            <li>5+ story şablonu</li>
-                            <li>Renk ve fontları kolayca değiştirebilirsin</li>
-                        </ul>
-                        <a href="#contact" class="btn btn-outline" style="margin-top:0.6rem;">Şablonlar Hakkında Sor</a>
-                    </article>
-
-                    <!-- Ürün 5 -->
-                    <article class="card">
-                        <h3><span class="icon">📈</span>Landing Page Performans Raporu</h3>
-                        <p>
-                            Mevcut sayfanın hız, tasarım, metin ve dönüşüm açısından analiz edildiği, uygulanabilir öneriler içeren rapor.
-                        </p>
-                        <ul>
-                            <li>Hız ve teknik durum analizi</li>
-                            <li>Metin ve CTA önerileri</li>
-                            <li>Net aksiyon maddeleri</li>
-                        </ul>
-                        <a href="#contact" class="btn btn-outline" style="margin-top:0.6rem;">Rapor Talep Et</a>
-                    </article>
-                </div>
-
-                <div style="margin-top:1.5rem; font-size:0.85rem; color:var(--text-muted);">
-                    Tüm dijital ürünlerim şu an <strong>WhatsApp veya Instagram üzerinden manuel olarak</strong> teslim edilmektedir.
-                    Satın alma veya detay bilgi için:
-                    <br />
-                    WhatsApp: <a href="https://wa.me/905421239770" target="_blank" rel="noopener noreferrer" style="color:var(--gold); font-weight:600;">+90 542 123 9770</a> •
-                    Instagram: <a href="https://instagram.com/huseyinelald1" target="_blank" rel="noopener noreferrer" style="color:var(--gold); font-weight:600;">@huseyinelald1</a>
-                </div>
-            </div>
-        </section>
-
-        <div class="divider"></div>
-
-        <!-- PORTFOLIO & CASE STUDIES -->
-        <section id="portfolio">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Örnek Çalışma Türleri & Mini Case’ler</h2>
-                    <p class="section-subtitle">
-                        Aşağıda, hazırlayabileceğim landing page ve dijital sistem türlerine örnekler ve senaryolar görebilirsin.
-                        Gerçek projelerini ekledikçe burayı güncelleyebilirsin.
-                    </p>
-                </div>
-
-                <div class="portfolio-grid">
-                    <div class="portfolio-item">
-                        <div class="portfolio-label">Landing Page</div>
-                        <h3>E-ticaret Ürünü Satış Sayfası</h3>
-                        <p>Tek ürüne odaklı, reklam kampanyalarına uygun, yüksek dönüşüm odaklı landing page yapısı.</p>
-                    </div>
-
-                    <div class="portfolio-item">
-                        <div class="portfolio-label">Hizmet</div>
-                        <h3>Hizmet & Randevu Landing Page</h3>
-                        <p>Kuaför, klinik, psikolog, diyetisyen gibi randevu ve iletişim odaklı hizmet sayfaları.</p>
-                    </div>
-
-                    <div class="portfolio-item">
-                        <div class="portfolio-label">Eğitim</div>
-                        <h3>Eğitim / Kurs Satış Sayfası</h3>
-                        <p>Ders, mentorluk veya online kurslar için detaylı ve ikna edici satış sayfaları.</p>
-                    </div>
-
-                    <!-- Mini Case 1 -->
-                    <div class="portfolio-item">
-                        <span class="case-tag">Örnek Senaryo</span>
-                        <h3>Freelancer İçin Notion + Landing Page Sistemi</h3>
-                        <p>
-                            Tek başına çalışan bir tasarımcı için; portföy odaklı landing page + Notion müşteri takibi + teklif şablonları ve AI destekli mail prompt’ları ile
-                            dağınık iş akışı tek bir sistemde toplandı.
-                        </p>
-                        <div class="case-metrics">
-                            Sonuç: Daha düzenli takip, daha profesyonel görünüm, teklif hazırlama süresinde ciddi azalma.
-                        </div>
-                    </div>
-
-                    <!-- Mini Case 2 -->
-                    <div class="portfolio-item">
-                        <span class="case-tag">Örnek Senaryo</span>
-                        <h3>Küçük Klinik İçin Randevu Otomasyonu</h3>
-                        <p>
-                            Küçük bir klinik için; randevu formu → Google Sheets → otomatik mail / WhatsApp bilgilendirmesi ile
-                            manuel yazışmalar azaltıldı, randevu süreci daha şeffaf ve hızlı hale getirildi.
-                        </p>
-                        <div class="case-metrics">
-                            Sonuç: Aynı ekip ile daha fazla randevu yönetimi ve daha az karışıklık.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- BEFORE / AFTER SECTION -->
-        <section id="before-after">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Önce / Sonra: GoldFlux ile Ne Değişiyor?</h2>
-                    <p class="section-subtitle">
-                        Tipik bir küçük işletme veya freelancer’ın dijitaldeki dağınık hâlini, çalışan bir sisteme dönüştürüyorum.
-                    </p>
-                </div>
-
-                <div class="before-after">
-                    <div class="ba-card">
-                        <div class="ba-label">Önce</div>
-                        <p>
-                            Her proje için sıfırdan yazılan mesajlar, karışık WhatsApp konuşmaları, kaybolan notlar, hatırlanmayan teslim tarihleri,
-                            sürekli ertelenen “site yaptırma” planı ve net olmayan bir online vitrin...
-                        </p>
-                    </div>
-                    <div class="ba-card">
-                        <div class="ba-label">Sonra</div>
-                        <p>
-                            Net bir landing page, belirlenmiş paketler, Notion veya Excel üzerinde açıklayıcı panolar, hazır prompt ve şablonlarla
-                            hızlanan iş akışı, düzenli teklif ve fatura süreçleri, daha profesyonel bir online görünüm.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ABOUT & FAQ -->
-        <section id="about">
-            <div class="container two-column">
-                <div>
-                    <div class="section-header">
-                        <h2 class="section-title">Neden GoldFlux Studio?</h2>
-                        <p class="section-subtitle">
-                            Renk paletim, tasarım dilim ve odaklandığım şey; sana <strong>altın değerinde dijital sistemler ve satış sayfaları</strong> üretmek.
-                        </p>
-                    </div>
-
-                    <div class="highlight-box">
-                        Sadece “güzel görünen” tasarımlar değil, pratikte işini kolaylaştıran sistemler kurmaya odaklanıyorum:
-                        <ul>
-                            <li>Ziyaretçiyi tek bir hedefe yönlendiren sayfa akışları</li>
-                            <li>Müşterinin güvenini hızla kazandıran metin ve yapı</li>
-                            <li>Reklam maliyetini boşa harcamadan dönüşüm almak</li>
-                            <li>Her sektöre uygun, esnek ve tekrar kullanılabilir yapılar</li>
-                            <li>Arka planda çalışan, seni yormayan otomasyonlar ve dijital sistemler</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="section-header">
-                        <h2 class="section-title">Sık Sorulan Sorular</h2>
-                    </div>
-
-                    <details>
-                        <summary>Fiyatlar nasıl belirleniyor?</summary>
-                        <p>
-                            İhtiyacın olan sayfanın/sistemin kapsamı, ekstra entegrasyonlar (form, rezervasyon, e-posta vb.) ve teslim süresine göre fiyatlandırma yapıyorum.
-                            En net fiyatı WhatsApp üzerinden konuşabiliriz.
-                        </p>
-                    </details>
-
-                    <details>
-                        <summary>Hangi sektörde çalışıyorsun?</summary>
-                        <p>
-                            Hizmet, ürün, yerel işletme, eğitim/kurs, danışmanlık, sağlık, güzellik, B2B vb. pek çok sektöre uygun landing page ve dijital sistem tasarlıyorum.
-                        </p>
-                    </details>
-
-                    <details>
-                        <summary>Teslim süresi ne kadar?</summary>
-                        <p>
-                            Basit bir landing page genellikle birkaç gün içinde hazır olur. Daha detaylı sistem ve paketlerde süre değişebilir, bunu başta netleştiriyoruz.
-                        </p>
-                    </details>
-
-                    <details>
-                        <summary>Revizyon hakkım var mı?</summary>
-                        <p>
-                            Starter paket için 1, Pro ve Studio paketler için 2 tur revizyon hakkı tanımlıyorum. Daha fazlası gerektiğinde, proje bazlı ek çalışma olarak konuşuyoruz.
-                        </p>
-                    </details>
-
-                    <details>
-                        <summary>Ödeme nasıl yapılıyor?</summary>
-                        <p>
-                            Genelde proje başlamadan önce bir kısmı, proje onayında kalan kısmı olacak şekilde iki aşamalı ödeme planı uyguluyorum. Detayları teklif aşamasında konuşuyoruz.
-                        </p>
-                    </details>
-                </div>
-            </div>
-        </section>
-
-        <!-- TESTIMONIALS -->
-        <section id="testimonials">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Müşteri Yorumları (Örnek)</h2>
-                    <p class="section-subtitle">
-                        Aşağıdaki yorumlar format örneği olarak hazırlanmıştır. Kendi gerçek müşterilerinden geri bildirim aldıkça burayı güncelleyebilirsin.
-                    </p>
-                </div>
-
-                <div class="testimonials-grid">
-                    <div class="testimonial-card">
-                        <div class="testimonial-name">Merve K. (Örnek)</div>
-                        <div class="testimonial-role">Freelance Grafik Tasarımcı</div>
-                        <p>
-                            “GoldFlux ile çalıştıktan sonra hem landing page’im hem de Notion sistemim oturdu.
-                            Teklif, fatura ve müşteri takibini tek ekrandan yönetiyorum. Günüm çok daha düzenli geçiyor.”
-                        </p>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <div class="testimonial-name">Ali Y. (Örnek)</div>
-                        <div class="testimonial-role">Küçük Klinik Sahibi</div>
-                        <p>
-                            “Randevu otomasyonu ve WhatsApp akışı sayesinde, hastalarla yazışma yükü çok azaldı.
-                            Artık kim, ne zaman, hangi işlem için gelecek net olarak görünüyor.”
-                        </p>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <div class="testimonial-name">Senin Müşterin</div>
-                        <div class="testimonial-role">Buraya gerçek yorum eklenebilir</div>
-                        <p>
-                            Burayı, ileride müşterilerinden alacağın gerçek yorumlarla güncelleyebilirsin. Kısa, net ve somut fayda içeren cümleler en iyi sonucu verir.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- BLOG / MINI İÇERİKLER -->
-        <section id="blog">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Mini Blog: Dijital Sistem Notları</h2>
-                    <p class="section-subtitle">
-                        Kısa ama işine yarayacak içerikleri buradan ekleyebilirsin. Aşağıdaki yazılar başlangıç için örnek metinlerdir.
-                    </p>
-                </div>
-
-                <div class="blog-grid">
-                    <article class="blog-card">
-                        <h3>Küçük İşletmeler İçin 3 Basit Otomasyon Fikri</h3>
-                        <div class="blog-meta">Mini rehber • Otomasyon</div>
-                        <p>
-                            1) Form → Google Sheets → Mail bildirimi. <br>
-                            2) Sık sorulan sorular için hazır WhatsApp cevapları. <br>
-                            3) Randevu veya kontrol tarihlerine hatırlatma ekleyen basit takvim entegrasyonları.
-                        </p>
-                    </article>
-
-                    <article class="blog-card">
-                        <h3>Freelancer’lar Neden “Sistem” Kurmalı?</h3>
-                        <div class="blog-meta">Mini rehber • Freelancer</div>
-                        <p>
-                            Her proje için her şeyi sıfırdan düşünmek yerine, teklif şablonu, fatura taslağı, proje planı ve içerik prompt’ları ile
-                            tekrar eden işleri otomatikleştirmek, üretkenliği direkt artırır.
-                        </p>
-                    </article>
-
-                    <article class="blog-card">
-                        <h3>Tek Sayfa (Landing Page) Bazen Neden Yeter?</h3>
-                        <div class="blog-meta">Mini rehber • Landing Page</div>
-                        <p>
-                            Eğer tek bir ana hizmetin, bir ana ürünün veya kampanyan varsa; kullanıcıyı dağıtmadan tek sayfada bütün ikna sürecini
-                            kurmak çoğu zaman çok sayfalı sitelerden daha verimli olabilir.
-                        </p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- CONTACT -->
-        <section id="contact">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">İletişime Geç</h2>
-                    <p class="section-subtitle">
-                        Birkaç mesajla başlayalım. Sektörünü, hedefini ve kısaca ne istediğini yazman yeterli.
-                    </p>
-                </div>
-
-                <div class="contact-grid">
-                    <div class="contact-card">
-                        <p><strong>WhatsApp:</strong> <br /> <a class="link" href="https://wa.me/905421239770" target="_blank" rel="noopener noreferrer">+90 542 123 9770</a></p>
-                        <p><strong>Instagram:</strong> <br /> <a class="link" href="https://instagram.com/huseyinelald1" target="_blank" rel="noopener noreferrer">@huseyinelald1</a></p>
-                        <p>
-                            En hızlı dönüş için WhatsApp’tan şu bilgileri gönderebilirsin:
-                        </p>
-                        <ul style="margin-top:0.4rem; padding-left:1.1rem; font-size:0.86rem; color:var(--text-muted);">
-                            <li>Hangi sektörde olduğun</li>
-                            <li>Ne satmak / ne tanıtmak istediğin</li>
-                            <li>Reklam verip vermediğin</li>
-                            <li>Yaklaşık bütçe aralığın (tahmini bile olabilir)</li>
-                        </ul>
-                    </div>
-
-                    <div class="contact-card">
-                        <!-- Bu formu backend bağlayana kadar görsel olarak durabilir -->
-                        <form action="#" method="post" novalidate>
-                            <div>
-                                <label for="name">Adın Soyadın</label>
-                                <input type="text" id="name" name="name" placeholder="Adını yaz" autocomplete="name" />
-                            </div>
-                            <div>
-                                <label for="sector">Sektörün</label>
-                                <input type="text" id="sector" name="sector" placeholder="Örn: Kuaför, E-ticaret, Danışmanlık..." />
-                            </div>
-                            <div>
-                                <label for="message">Kısaca ihtiyacın nedir?</label>
-                                <textarea id="message" name="message" placeholder="Landing page ve dijital sistem tarafında neyi hedefliyorsun?"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary" style="margin-top:0.3rem;">
-                                (Örnek) Formu Gönder
-                            </button>
-                            <p style="font-size:0.75rem; color:var(--text-muted); margin-top:0.3rem;">
-                                Not: Bu form örnektir. Gerçek gönderim için bir e-posta servis veya backend ile bağlayabilirsin.
-                            </p>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
+      <aside class="promo-card" aria-label="promo">
+        <h4>Premium Paket</h4>
+        <p style="color:#DCDCDC">Tüm yeteneklerin kilidini aç: limitsiz sohbet, gelişmiş modeller, öncelikli destek.</p>
+        <div style="margin-top:14px;font-weight:800;font-size:20px;color:white">499.90 ₺ / Yıllık</div>
+        <div style="margin-top:16px;display:flex;gap:10px"><button class="btn btn-primary">Hemen Satın Al</button><button class="btn btn-ghost">Ödeme Seçenekleri</button></div>
+        <div style="margin-top:18px;color:#CFCFCF;font-size:13px">Ücretsiz kullanıcılar için sohbet: **sınırlı**. Premium abone olana kadar günlük 5 soru sınırı uygulanır.</div>
+      </aside>
     </main>
+  </div>
 
-    <!-- MOBİL SABİT CTA BAR -->
-    <div class="mobile-cta-bar">
-        <div class="mobile-cta-text">
-            <span>Hızlı teklif al</span><br>
-            WhatsApp üzerinden projen için yaz.
-        </div>
-        <a class="btn btn-primary" href="https://wa.me/905421239770?text=Merhaba%20Hüseyin%2C%20GoldFlux%20Studio%27dan%20landing%20page%20ve%20dijital%20sistem%20paketi%20i%C3%A7in%20teklif%20almak%20istiyorum." target="_blank" rel="noopener noreferrer">
-            WhatsApp
-        </a>
+  <!-- Chat Widget -->
+  <div class="chat-widget" role="region" aria-label="GoldFluxAI Chat Widget">
+    <div class="chat-header">
+      <div class="logo-small">GF</div>
+      <div>
+        <div style="color:white;font-weight:700">GoldFluxAI Sohbet</div>
+        <div style="font-size:12px;color:#BDBDBD">Ücretsiz: günlük 5 soru • Premium: limitsiz</div>
+      </div>
     </div>
 
-    <!-- MASAÜSTÜ WHATSAPP BALONU -->
-    <div class="floating-whatsapp">
-        <a href="https://wa.me/905421239770?text=Merhaba%20Hüseyin%2C%20GoldFlux%20Studio%20hizmetleri%20i%C3%A7in%20ileti%C5%9Fime%20ge%C3%A7iyorum." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp ile hızlı iletişim">
-            <div class="floating-whatsapp-button">
-                <span>💬</span>
-            </div>
-            <div class="floating-whatsapp-label">
-                WhatsApp’tan yaz
-            </div>
-        </a>
+    <div class="chat-body" id="chatBody">
+      <div class="msg ai">Merhaba! GoldFluxAI'ye hoş geldiniz. Bugün nasıl yardımcı olabilirim?</div>
+      <div class="msg user">Sitenin renk paletini gösterir misin?</div>
+      <div class="msg ai">Tabii—GoldFlux Gold (#FFD700) ana vurgu rengimiz. Premium rehber ister misin?</div>
     </div>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="container footer-inner">
-            <div>© <span id="year"></span> GoldFlux Studio • Tüm hakları saklıdır.</div>
-            <div>Hazırlayan: Hüseyin Elaldı • <a href="https://instagram.com/huseyinelald1" target="_blank" rel="noopener noreferrer">@huseyinelald1</a></div>
-            <div class="footer-links">
-                <a href="#services">Hizmetler</a>
-                <a href="#packages">Paketler</a>
-                <a href="#shop">Dijital Dükkan</a>
-                <a href="#portfolio">Örnekler</a>
-                <a href="#testimonials">Yorumlar</a>
-                <a href="#blog">Blog</a>
-                <a href="#contact">İletişim</a>
-            </div>
-        </div>
-    </footer>
+    <div class="chat-input">
+      <input class="input" id="chatInput" placeholder="Sorunu yaz... (Ücretsiz: günlük 5 soru)" />
+      <button class="btn btn-primary" id="sendBtn">Gönder</button>
+    </div>
 
-    <script>
-        // Yılı otomatik güncelle & mobil menü kontrolü
-        document.addEventListener("DOMContentLoaded", function () {
-            var yearSpan = document.getElementById("year");
-            if (yearSpan) {
-                yearSpan.textContent = new Date().getFullYear();
-            }
+    <div class="buy-note">
+      Ücretsiz kullanım: günlük 5 soru. Premium (499.90 ₺) ile limitsiz ve öncelikli cevap.
+    </div>
 
-            var navToggle = document.querySelector(".nav-toggle");
-            var navLinks = document.querySelector(".nav-links");
-            var navOverlay = document.querySelector(".nav-overlay");
+    <!-- Paywall overlay (hidden by default) -->
+    <div id="paywall" class="paywall" style="display:none">
+      <h4>Limitsiz Sohbet için Premium</h4>
+      <p class="price">499.90 ₺ / Yıllık</p>
+      <p>Premium paketi satın alana kadar sohbetiniz kısıtlıdır.</p>
+      <div style="display:flex;gap:8px;margin-top:10px">
+        <button class="btn btn-primary" onclick="purchase()">Satın Al</button>
+        <button class="btn btn-ghost" onclick="closePaywall()">Kapat</button>
+      </div>
+    </div>
+  </div>
 
-            function closeMenu() {
-                if (navLinks && navToggle) {
-                    navLinks.classList.remove("is-open");
-                    navToggle.classList.remove("is-open");
-                    navToggle.setAttribute("aria-expanded", "false");
-                }
-                if (navOverlay) {
-                    navOverlay.classList.remove("is-active");
-                }
-            }
+<script>
+// Simple mock chat logic with local daily counter (demo-only)
+const MAX_FREE = 5;
+const KEY = 'gf_free_count';
+const todayKey = new Date().toISOString().slice(0,10) + '_' + KEY;
+if(!localStorage.getItem(todayKey)) localStorage.setItem(todayKey, '0');
 
-            if (navToggle && navLinks) {
-                navToggle.addEventListener("click", function () {
-                    var isOpen = navLinks.classList.toggle("is-open");
-                    navToggle.classList.toggle("is-open", isOpen);
-                    navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-                    if (navOverlay) {
-                        navOverlay.classList.toggle("is-active", isOpen);
-                    }
-                });
+function getCount(){ return parseInt(localStorage.getItem(todayKey) || '0',10); }
+function incCount(){ localStorage.setItem(todayKey, String(getCount()+1)); }
 
-                navLinks.querySelectorAll("a").forEach(function (link) {
-                    link.addEventListener("click", function () {
-                        closeMenu();
-                    });
-                });
-            }
+document.getElementById('sendBtn').addEventListener('click', ()=>{
+  const input = document.getElementById('chatInput');
+  const text = input.value.trim();
+  if(!text) return;
+  const chatBody = document.getElementById('chatBody');
+  const userDiv = document.createElement('div'); userDiv.className='msg user'; userDiv.textContent = text;
+  chatBody.appendChild(userDiv);
+  input.value='';
 
-            if (navOverlay) {
-                navOverlay.addEventListener("click", function () {
-                    closeMenu();
-                });
-            }
-        });
-    </script>
+  // Check free limit
+  if(getCount() >= MAX_FREE && !localStorage.getItem('gf_premium')){
+    // show paywall
+    document.getElementById('paywall').style.display='flex';
+    const aiDiv = document.createElement('div'); aiDiv.className='msg ai'; aiDiv.textContent = "Üzgünüm, ücretsiz soru limitinizi doldurdunuz. Premium için 499.90 ₺.";
+    chatBody.appendChild(aiDiv);
+    chatBody.scrollTop = chatBody.scrollHeight;
+    return;
+  }
+
+  // increment and mock ai reply
+  incCount();
+  const aiDiv = document.createElement('div'); aiDiv.className='msg ai'; aiDiv.textContent = "GoldFluxAI is working on it... (demo cevabı)";
+  chatBody.appendChild(aiDiv);
+  chatBody.scrollTop = chatBody.scrollHeight;
+});
+
+function purchase(){
+  // Demo purchase simulation: set premium flag
+  localStorage.setItem('gf_premium', '1');
+  document.getElementById('paywall').style.display='none';
+  alert('Tebrikler — Premium etkinleştirildi (demo).');
+}
+function closePaywall(){ document.getElementById('paywall').style.display='none'; }
+
+// accessibility: focus chat input on load
+document.getElementById('chatInput').focus();
+</script>
+
+<!-- Icon set (inline sprite) -->
+<svg style="display:none" aria-hidden="true">
+  <!-- 24 simple icons as paths (symbol ids) -->
+  <symbol id="icon-bolt" viewBox="0 0 24 24"><path fill="currentColor" d="M13 2L3 14h7l-1 8 10-12h-7z"/></symbol>
+  <symbol id="icon-brain" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a5 5 0 0 0-5 5v1H5v2h2v6h10v-6h2v-2h-2V7a5 5 0 0 0-5-5z"/></symbol>
+  <symbol id="icon-code" viewBox="0 0 24 24"><path fill="currentColor" d="M8 18l-6-6 6-6v4h8V6l6 6-6 6v-4H8z"/></symbol>
+  <symbol id="icon-chat" viewBox="0 0 24 24"><path fill="currentColor" d="M20 2H4a2 2 0 0 0-2 2v14l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"/></symbol>
+  <symbol id="icon-rocket" viewBox="0 0 24 24"><path fill="currentColor" d="M2 22s1-4 4-6 6-4 8-6 6-4 6-4-2 4-4 6-6 4-8 6-6 4-6 4z"/></symbol>
+  <symbol id="icon-lock" viewBox="0 0 24 24"><path fill="currentColor" d="M6 10V8a6 6 0 1 1 12 0v2h1a1 1 0 0 1 1 1v9H4v-9a1 1 0 0 1 1-1h1z"/></symbol>
+  <symbol id="icon-dashboard" viewBox="0 0 24 24"><path fill="currentColor" d="M3 13h8V3H3v10zm10 8h8V3h-8v18zM3 21h8v-6H3v6z"/></symbol>
+  <symbol id="icon-analytics" viewBox="0 0 24 24"><path fill="currentColor" d="M3 3v18h18V3H3zm5 14H6V8h2v9zm4 0h-2V5h2v12zm4 0h-2v-6h2v6z"/></symbol>
+  <symbol id="icon-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 17.3L6.2 20l1-6.1L2 9.2l6.1-.9L12 2l3.9 6.3L22 9.2l-5.2 4.7L18.8 20z"/></symbol>
+  <symbol id="icon-settings" viewBox="0 0 24 24"><path fill="currentColor" d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm8.94 5a6.9 6.9 0 0 0 0-2l2.1-1.6-2-3.4-2.5.9a7 7 0 0 0-1.7-.98L15 1h-6l-.84 3.9c-.6.22-1.17.52-1.7.98L3 5.49 1 8.89 3.1 10.5c-.06.66-.06 1.32 0 2L1 14.9 3 18.29l2.5-.9c.52.45 1.1.82 1.7 1.05L9 23h6l.84-3.9c.6-.22 1.17-.52 1.7-.98l2.5.9 2-3.4-2.1-1.6z"/></symbol>
+  <symbol id="icon-wallet" viewBox="0 0 24 24"><path fill="currentColor" d="M2 7v12a1 1 0 0 0 1 1h18V7H2zm20-2h-6V3H6v2H4a2 2 0 0 0-2 2v10h20V7a2 2 0 0 0-2-2z"/></symbol>
+  <symbol id="icon-calendar" viewBox="0 0 24 24"><path fill="currentColor" d="M7 11h5v5H7zM3 4h2v2H3zM19 4h2v2h-2zM3 8h18v12H3z"/></symbol>
+  <symbol id="icon-user" viewBox="0 0 24 24"><path fill="currentColor" d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-4.4 0-8 2.2-8 4v2h16v-2c0-1.8-3.6-4-8-4z"/></symbol>
+  <symbol id="icon-upload" viewBox="0 0 24 24"><path fill="currentColor" d="M5 20h14v-2H5v2zM12 3l-5 5h3v4h4V8h3l-5-5z"/></symbol>
+  <symbol id="icon-download" viewBox="0 0 24 24"><path fill="currentColor" d="M5 20h14v-2H5v2zM12 3v10l4-4h-3V3h-2z"/></symbol>
+  <symbol id="icon-idea" viewBox="0 0 24 24"><path fill="currentColor" d="M9 21h6v-1.5c0-1.9 3-2.2 3-6.5 0-2.8-2.2-5-5-5-1.6 0-3 .7-4 1.8C8.6 10 7 10 5 11c-2 1-1 3 0 5 1 2 2 3 4 4z"/></symbol>
+  <symbol id="icon-help" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 15h-2v-2h2v2zm1.1-7.5c-.3.6-1 1-2.1 1-1 0-1.9-.4-2.6-1.1C9 8.9 9 7.5 10 6.8 10.7 6.2 11.8 6 13 6c1.3 0 2.3.6 2.6 1.8.2.8.1 1.7-1 2.7z"/></symbol>
+  <symbol id="icon-time" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 11H7V11h6v2z"/></symbol>
+  <symbol id="icon-cloud" viewBox="0 0 24 24"><path fill="currentColor" d="M19 18H6a4 4 0 0 1 0-8 5 5 0 0 1 9.9-1.2A4.5 4.5 0 0 1 19 18z"/></symbol>
+</svg>
+
 </body>
 </html>
